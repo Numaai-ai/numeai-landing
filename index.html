@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NuMeAi — AI Shop Assistant for Shopify & Etsy Sellers | Answer Questions 24/7</title>
-  <meta name="description" content="The $18/month AI assistant Shopify and Etsy sellers use to answer customer questions 24/7, recover abandoned carts, and increase sales. Setup in 5 minutes." />
+  <meta name="description" content="Create your AI twin in 5 minutes. Join 1,000+ coaches and creators who use NuMeAi to scale their expertise, generate passive income, and help more clients 24/7.">
 
   <!-- SEO -->
   <link rel="canonical" href="https://numeai.ai/" />
@@ -12,16 +12,17 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="NuMeAi — AI Shop Assistant for Shopify & Etsy" />
-  <meta property="og:description" content="Answer customer questions 24/7. Recover abandoned carts. Increase sales 20-40%. $18/month." />
+  <meta property="og:description" content="Answer customer questions 24/7. Recover carts. Increase sales 20–40%. Try free." />
   <meta property="og:url" content="https://numeai.ai/" />
   <meta property="og:type" content="website" />
+  <!-- Use absolute URL for best social sharing; update domain if needed -->
   <meta property="og:image" content="https://numeai.ai/numaai-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,143 +38,193 @@
       --light-gray: #f1f5f9;
       --white: #ffffff;
       --success: #10b981;
-      --gradient: linear-gradient(135deg, #F4A89B 0%, #F5B89F 25%, #A8D5D3 75%, #9CC5C4 100%);
+      --gradient: linear-gradient(135deg,#F4A89B 0%,#F5B89F 25%,#A8D5D3 75%,#9CC5C4 100%);
     }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      background: var(--white);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      line-height:1.6;
+      color:var(--dark);
+      background:var(--white);
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
+    .container{ max-width:1200px; margin:0 auto; padding:0 24px; }
+
+    /* Header */
+    header{
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(0,0,0,.05);
+      transition:all .3s ease;
     }
-
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
+    header.scrolled{ box-shadow:0 4px 20px rgba(0,0,0,.08); }
+    .nav{ display:flex; justify-content:space-between; align-items:center; padding:16px 0; }
+    .logo-container{ display:flex; align-items:center; gap:12px; }
+    .logo-image{ height:48px; width:auto; }
+    .logo-text{
+      font-size:26px; font-weight:900; letter-spacing:-.02em;
+      background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     }
+    .nav-links{ display:flex; gap:32px; align-items:center; }
+    .nav-links a{ color:var(--dark); text-decoration:none; font-weight:600; font-size:15px; transition:color .2s; }
+    .nav-links a:hover{ color:var(--primary-coral); }
+    .mobile-menu-toggle{ display:none; flex-direction:column; gap:4px; cursor:pointer; }
+    .mobile-menu-toggle span{ width:24px; height:3px; background:var(--dark); border-radius:2px; }
 
-    header.scrolled {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    /* Buttons */
+    .btn{ display:inline-block; padding:12px 24px; border-radius:12px; font-weight:700; font-size:15px; text-decoration:none; transition:all .3s ease; border:none; cursor:pointer; }
+    .btn-primary{ background:var(--gradient); color:#fff; box-shadow:0 4px 20px rgba(244,168,155,.3); }
+    .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 30px rgba(244,168,155,.4); }
+    .btn-secondary{ background:#fff; color:var(--primary-coral); border:2px solid var(--primary-coral); }
+    .btn-secondary:hover{ background:var(--primary-coral); color:#fff; }
+    .btn-large{ padding:16px 32px; font-size:17px; }
+
+    /* Hero */
+    .hero{
+      padding:140px 0 100px;
+      background:linear-gradient(135deg,var(--primary-coral) 0%,var(--primary-peach) 25%,var(--primary-mint) 75%,var(--primary-teal) 100%);
+      position:relative; overflow:hidden;
     }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
+    .hero::before{
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 20% 50%,rgba(255,255,255,.15) 0%,transparent 50%),
+        radial-gradient(circle at 80% 80%,rgba(255,255,255,.15) 0%,transparent 50%);
     }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .hero-content{ position:relative; z-index:1; max-width:900px; margin:0 auto; text-align:center; color:#fff; }
+    .hero-badge{
+      display:inline-flex; align-items:center; gap:8px; padding:8px 20px;
+      background:rgba(255,255,255,.25); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.4);
+      border-radius:50px; font-size:14px; font-weight:800; margin-bottom:24px; box-shadow:0 4px 20px rgba(0,0,0,.1);
     }
-
-    .logo-image {
-      height: 48px;
-      width: auto;
+    .hero h1{ font-size:64px; font-weight:900; line-height:1.1; margin-bottom:24px; letter-spacing:-.02em; text-shadow:0 2px 20px rgba(0,0,0,.1); }
+    .hero-subtitle{ font-size:22px; line-height:1.6; opacity:.95; margin:0 auto 40px; max-width:700px; }
+    .hero-cta{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:48px; }
+    .trust-bar{
+      display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap;
+      padding:28px; background:rgba(255,255,255,.95); backdrop-filter:blur(10px); border-radius:16px;
+      box-shadow:0 8px 30px rgba(0,0,0,.15); margin-top:60px; border:1px solid rgba(255,255,255,.3);
     }
+    .trust-item{ display:flex; align-items:center; gap:8px; font-size:15px; font-weight:700; color:var(--dark); }
+    .trust-item svg{ color:var(--success); }
 
-    .logo-text {
-      font-size: 26px;
-      font-weight: 900;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.02em;
+    /* Stats */
+    .stats{ padding:80px 0; background:#fff; }
+    .stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:40px; }
+    .stat-card{ text-align:center; padding:32px; background:linear-gradient(135deg,rgba(244,168,155,.05) 0%,rgba(156,197,196,.05) 100%); border-radius:20px; border:1px solid rgba(244,168,155,.2); }
+    .stat-number{
+      font-size:48px; font-weight:900; margin-bottom:8px;
+      background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     }
+    .stat-label{ font-size:15px; color:var(--gray); font-weight:600; }
 
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
+    /* Sections */
+    .section{ padding:100px 0; }
+    .section-alt{ background:linear-gradient(180deg,#f8fafc 0%,#fff 100%); }
+    .section-header{ text-align:center; max-width:800px; margin:0 auto 60px; }
+    .section-tag{ display:inline-block; padding:6px 16px; background:rgba(244,168,155,.15); color:var(--primary-coral); border-radius:50px; font-size:13px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; }
+    .section-title{ font-size:48px; font-weight:900; line-height:1.2; margin-bottom:16px; letter-spacing:-.02em; }
+    .section-subtitle{ font-size:20px; color:var(--gray); line-height:1.6; }
+
+    /* ROI */
+    .roi-calculator{ background:#fff; padding:48px; border-radius:24px; box-shadow:0 8px 40px rgba(0,0,0,.08); max-width:700px; margin:60px auto 0; border:2px solid rgba(244,168,155,.2); }
+    .roi-calculator h3{ font-size:28px; font-weight:800; margin-bottom:32px; text-align:center; }
+    .roi-row{ display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:2px solid var(--light-gray); font-size:17px; }
+    .roi-row:last-child{ border-bottom:none; margin-top:20px; padding-top:32px; border-top:3px solid var(--primary-coral); }
+    .roi-label{ font-weight:600; color:var(--dark); }
+    .roi-value{ font-weight:800; font-size:24px; }
+    .roi-value.positive{ color:var(--success); }
+    .roi-value.negative{ color:#ef4444; }
+
+    /* Use cases */
+    .use-case-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:32px; margin-top:60px; }
+    .use-case-card{ background:#fff; padding:48px; border-radius:24px; box-shadow:0 4px 30px rgba(0,0,0,.06); transition:all .3s ease; border:2px solid rgba(244,168,155,.1); }
+    .use-case-card:hover{ transform:translateY(-8px); box-shadow:0 20px 60px rgba(244,168,155,.2); border-color:var(--primary-coral); }
+    .use-case-card.featured{ border-color:var(--primary-coral); background:linear-gradient(135deg,rgba(244,168,155,.03) 0%,rgba(156,197,196,.03) 100%); }
+    .use-case-icon{ width:80px; height:80px; background:var(--gradient); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:40px; margin-bottom:24px; color:#fff; }
+    .use-case-card h3{ font-size:28px; font-weight:800; margin-bottom:16px; }
+    .use-case-card p{ font-size:17px; color:var(--gray); line-height:1.7; margin-bottom:24px; }
+    .use-case-stats{ display:flex; gap:32px; padding:24px; background:rgba(244,168,155,.08); border-radius:16px; margin-top:24px; }
+    .stat{ flex:1; }
+    .stat-number-small{ font-size:32px; font-weight:900; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:4px; }
+    .stat-label-small{ font-size:13px; color:var(--gray); font-weight:600; }
+
+    /* Features */
+    .features{ background:var(--dark); color:#fff; }
+    .features .section-subtitle{ color:rgba(255,255,255,.7); }
+    .feature-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:60px; }
+    .feature-card{ background:rgba(255,255,255,.05); backdrop-filter:blur(10px); padding:40px; border-radius:20px; border:1px solid rgba(255,255,255,.1); transition:all .3s ease; }
+    .feature-card:hover{ background:rgba(255,255,255,.08); transform:translateY(-4px); border-color:var(--primary-coral); }
+    .feature-icon{ font-size:48px; margin-bottom:24px; }
+    .feature-card h3{ font-size:22px; font-weight:800; margin-bottom:12px; }
+    .feature-card p{ color:rgba(255,255,255,.8); line-height:1.7; font-size:16px; }
+
+    /* Testimonials */
+    .testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:60px; }
+    .testimonial-card{ background:#fff; padding:40px; border-radius:20px; box-shadow:0 4px 30px rgba(0,0,0,.06); border:2px solid rgba(244,168,155,.1); position:relative; }
+    .quote-mark{ position:absolute; top:20px; right:20px; font-size:60px; opacity:.1; font-weight:900; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .stars{ color:#fbbf24; font-size:18px; margin-bottom:16px; }
+    .testimonial-text{ font-size:16px; line-height:1.7; color:var(--dark); margin-bottom:24px; }
+    .testimonial-author{ display:flex; align-items:center; gap:16px; }
+    .author-avatar{ width:56px; height:56px; border-radius:50%; background:var(--gradient); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:20px; }
+    .author-info h4{ font-size:16px; font-weight:800; margin-bottom:4px; }
+    .author-info p{ font-size:14px; color:var(--gray); }
+
+    /* CTA */
+    .cta-section{
+      padding:120px 0;
+      background:var(--gradient);
+      color:#fff; text-align:center; position:relative; overflow:hidden;
     }
-
-    .nav-links a {
-      color: var(--dark);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      transition: color 0.2s;
+    .cta-section::before{
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 20% 50%,rgba(255,255,255,.15) 0%,transparent 50%),
+        radial-gradient(circle at 80% 80%,rgba(255,255,255,.15) 0%,transparent 50%);
     }
+    .cta-content{ position:relative; z-index:1; max-width:800px; margin:0 auto; }
+    .cta-section h2{ font-size:52px; font-weight:900; line-height:1.2; margin-bottom:24px; letter-spacing:-.02em; }
+    .cta-section p{ font-size:22px; opacity:.95; margin-bottom:40px; line-height:1.6; }
 
-    .nav-links a:hover { color: var(--primary-coral); }
+    /* Footer */
+    footer{ padding:80px 0 40px; background:var(--dark); color:rgba(255,255,255,.7); }
+    .footer-content{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; margin-bottom:60px; }
+    .footer-brand{ display:flex; flex-direction:column; gap:16px; }
+    .footer-logo{ height:48px; width:auto; }
+    .footer-brand p{ font-size:15px; line-height:1.7; }
+    .footer-section h4{ color:#fff; font-size:16px; font-weight:800; margin-bottom:20px; }
+    .footer-section a{ display:block; color:rgba(255,255,255,.7); text-decoration:none; margin-bottom:12px; font-size:15px; transition:color .2s; }
+    .footer-section a:hover{ color:#fff; }
+    .footer-bottom{ padding-top:40px; border-top:1px solid rgba(255,255,255,.1); text-align:center; font-size:14px; }
 
-    /* Mobile menu toggle */
-    .mobile-menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
+    /* Responsive */
+    @media (max-width:1024px){
+      .use-case-grid,.feature-grid,.testimonial-grid{ grid-template-columns:1fr; }
+      .stats-grid{ grid-template-columns:repeat(2,1fr); }
     }
-
-    .mobile-menu-toggle span {
-      width: 24px;
-      height: 3px;
-      background: var(--dark);
-      border-radius: 2px;
+    @media (max-width:768px){
+      .nav-links{ display:none; }
+      .mobile-menu-toggle{ display:flex; }
+      .hero h1{ font-size:42px; }
+      .hero-subtitle{ font-size:18px; }
+      .section-title{ font-size:36px; }
+      .footer-content{ grid-template-columns:1fr; gap:40px; }
+      .stats-grid{ grid-template-columns:1fr; }
+      .roi-calculator{ padding:32px 24px; }
     }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--gradient);
-      color: white;
-      box-shadow: 0 4px 20px rgba(244, 168, 155, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(244,168,155,0.4);
-    }
-
-    .btn-secondary {
-      background: white;
-      color: var(--primary-coral);
-      border: 2px solid var(--primary-coral);
-    }
-
-    .btn-secondary:hover {
-      background: var(--primary-coral);
-      color: white;
-    }
-
-    .btn-large { padding: 16px 32px; font-size: 17px; }
-
-    /* HERO and other sections omitted here for brevity — keep your same content/style */
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
+  <!-- Header -->
   <header id="header">
     <div class="container">
       <nav class="nav">
         <div class="logo-container">
+          <!-- 🔧 ensure the file exists at repo root with exact name/case -->
           <img src="/numaai-logo.png" alt="NuMeAi Logo" class="logo-image" />
           <span class="logo-text">NuMeAi</span>
         </div>
@@ -183,14 +234,173 @@
           <a href="#testimonials">Reviews</a>
           <a href="https://app.numeai.ai" class="btn btn-primary">Start Free</a>
         </div>
-        <div class="mobile-menu-toggle">
+        <div class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- ✅ Keep your existing hero, stats, ROI, features, testimonials, and footer exactly as before -->
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">✨ Trusted by 1,000+ coaches and creators</div>
+        <h1>Scale Your Expertise<br>With Your AI Twin</h1>
+        <p class="hero-subtitle">Join coaches and creators who use NuMeAi to answer client questions 24/7, generate passive income, and help more people — without working more hours.</p>
+        <div class="hero-cta">
+          <a href="https://app.numeai.ai/?name=Creator&wizard=1" class="btn btn-primary btn-large">Create Your AI Twin (Free)</a>
+          <a href="#use-cases" class="btn btn-secondary btn-large">See How It Works</a>
+        </div>
+        <div class="trust-bar">
+          <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg> <span>5-minute setup</span></div>
+          <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg> <span>Your data stays yours</span></div>
+          <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg> <span>No credit card</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">5min</div><div class="stat-label">Average setup time</div></div>
+        <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label">Your AI works nonstop</div></div>
+        <div class="stat-card"><div class="stat-number">22x</div><div class="stat-label">Cheaper than alternatives</div></div>
+        <div class="stat-card"><div class="stat-number">$5K+</div><div class="stat-label">Avg monthly value created</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section section-alt" id="use-cases">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Perfect For</div>
+        <h2 class="section-title">Built for Small Teams & Solo Creators</h2>
+        <p class="section-subtitle">Whether you sell services or digital products — your AI assistant works 24/7.</p>
+      </div>
+      <div class="use-case-grid">
+        <div class="use-case-card featured">
+          <div class="use-case-icon">🧠</div>
+          <h3>Consultants & Coaches</h3>
+          <p>Answer FAQs, pre-qualify leads, schedule consults. Capture emails automatically and follow up.</p>
+          <div class="use-case-stats">
+            <div class="stat"><div class="stat-number-small">40%</div><div class="stat-label-small">Faster response</div></div>
+            <div class="stat"><div class="stat-number-small">25%</div><div class="stat-label-small">More bookings</div></div>
+            <div className="stat"><div class="stat-number-small">50%</div><div class="stat-label-small">Less back-and-forth</div></div>
+          </div>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-icon">🛍️</div>
+          <h3>Creators & Stores</h3>
+          <p>Guide shoppers, handle sizing/questions, reduce cart bounce, and hand-off to human chat when needed.</p>
+          <div class="use-case-stats">
+            <div class="stat"><div class="stat-number-small">+20–40%</div><div class="stat-label-small">Sales lift</div></div>
+            <div class="stat"><div class="stat-number-small">0 code</div><div class="stat-label-small">5-min setup</div></div>
+            <div class="stat"><div class="stat-number-small">Unlimited</div><div class="stat-label-small">Conversations</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" style="background:rgba(255,255,255,.15);color:#fff;">Features</div>
+        <h2 class="section-title" style="color:#fff;">Everything You Need to Scale</h2>
+        <p class="section-subtitle">Professional AI, simple setup, no code required.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card"><div class="feature-icon">⚡</div><h3>5-Minute Setup</h3><p>Answer 6 questions, upload your info, and publish. No dev needed.</p></div>
+        <div class="feature-card"><div class="feature-icon">🎤</div><h3>Voice & Text</h3><p>Natural conversations with voice replies and rich text answers.</p></div>
+        <div class="feature-card"><div class="feature-icon">📊</div><h3>Lead Capture</h3><p>Collect emails, qualify prospects, and sync to your CRM.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Reviews</div>
+        <h2 class="section-title">Loved by Builders</h2>
+        <p class="section-subtitle">Real outcomes from people like you.</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">We closed more deals in Q3 with fewer meetings. The Sim handles 80% of questions before a call.</div>
+          <div class="testimonial-author"><div class="author-avatar">GM</div><div class="author-info"><h4>G. Malhotra</h4><p>Founder, NumaAi</p></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">We launched a niche coaching product in days. Our audience tried it free, then converted in one click.</div>
+          <div class="testimonial-author"><div class="author-avatar">GC</div><div class="author-info"><h4>Gabriela C.</h4><p>Creator, Gabz.ai</p></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">Setup took minutes. Clients get instant answers and book calls without us chasing.</div>
+          <div class="author-info" style="margin-top:8px;"><h4>Agency Owner</h4><p>NYC</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Start Today. Wow Them in Minutes.</h2>
+        <p>Let your audience try your Sim for free. Convert with confidence. No credit card required.</p>
+        <a href="https://app.numeai.ai/?wizard=1" class="btn btn-secondary btn-large" style="background:#fff;color:var(--primary-coral);border:none;box-shadow:0 8px 30px rgba(0,0,0,.2);">
+          Create Your AI Twin — Free
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="/numaai-logo.png" alt="NuMeAi" class="footer-logo" />
+          <p>NuMeAi helps entrepreneurs and creators scale their expertise with a human-like AI coach that onboards clients, answers questions, and drives revenue — 24/7.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Product</h4>
+          <a href="#roi">ROI Calculator</a>
+          <a href="#features">Features</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="https://app.numeai.ai">Login</a>
+        </div>
+        <div class="footer-section">
+          <h4>Company</h4>
+          <a href="mailto:hello@numeai.ai">Contact</a>
+          <a href="#">About</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <a href="#">Docs</a>
+          <a href="#">Help Center</a>
+          <a href="https://gabz.ai" target="_blank" rel="noopener">Gabz.ai</a>
+          <a href="#">Shopify Integration</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> NuMeAi. Built by the team behind Gabz.ai. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     // Sticky header
@@ -200,31 +410,32 @@
     });
 
     // Footer year
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
 
-    // ✅ Mobile menu toggle
+    // Mobile menu toggle
     const toggle = document.querySelector('.mobile-menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    toggle.addEventListener('click', () => {
-      const visible = navLinks.classList.toggle('open');
-      if (visible) {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.gap = '20px';
-        navLinks.style.background = 'rgba(255,255,255,0.95)';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '70px';
-        navLinks.style.right = '24px';
-        navLinks.style.padding = '20px';
-        navLinks.style.borderRadius = '12px';
-        navLinks.style.boxShadow = '0 8px 30px rgba(0,0,0,0.1)';
-      } else {
-        navLinks.removeAttribute('style');
-      }
-    });
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', () => {
+        const open = navLinks.style.display !== 'flex';
+        toggle.setAttribute('aria-expanded', String(open));
+        if (open) {
+          navLinks.style.display = 'flex';
+          navLinks.style.flexDirection = 'column';
+          navLinks.style.gap = '20px';
+          navLinks.style.background = 'rgba(255,255,255,0.95)';
+          navLinks.style.position = 'absolute';
+          navLinks.style.top = '70px';
+          navLinks.style.right = '24px';
+          navLinks.style.padding = '20px';
+          navLinks.style.borderRadius = '12px';
+          navLinks.style.boxShadow = '0 8px 30px rgba(0,0,0,0.1)';
+        } else {
+          navLinks.removeAttribute('style');
+        }
+      });
+    }
   </script>
 </body>
 </html>
-
-
