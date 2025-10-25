@@ -6,32 +6,27 @@
   <title>NuMeAi — AI Shop Assistant for Shopify & Etsy Sellers | Answer Questions 24/7</title>
   <meta name="description" content="The $18/month AI assistant Shopify and Etsy sellers use to scale their expertise, generate passive income, and help more clients 24/7. Setup in 5 minutes." />
 
-
   <!-- SEO -->
   <link rel="canonical" href="https://numeai.ai/" />
   <meta name="robots" content="index, follow" />
 
-
   <!-- Open Graph -->
   <meta property="og:title" content="NuMeAi — AI Shop Assistant for Shopify & Etsy" />
-  <meta property="og:description" content="Answer customer questions 24/7. Recover carts. Increase sales 20–40%. Try free." />
+  <meta property="og-description" content="Answer customer questions 24/7. Recover carts. Increase sales 20–40%. Try free." />
   <meta property="og:url" content="https://numeai.ai/" />
   <meta property="og:type" content="website" />
-  <!-- FIX: absolute URL for social sharing -->
+  <!-- Absolute URL for social sharing (will resolve when DNS is pointed) -->
   <meta property="og:image" content="https://numeai.ai/numaai-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-
 
   <link rel="icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { border: 0; scroll-behavior: smooth; }
-
 
     :root {
       --primary-coral: #F4A89B;
@@ -46,7 +41,6 @@
       --gradient: linear-gradient(135deg, #F4A89B 0%, #F5B89F 25%, #F5B89F 25%, #A8D5D3 75%, #9CC5C4 100%);
     }
 
-
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
@@ -56,9 +50,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
 
     /* Header */
     header {
@@ -69,34 +61,32 @@
       transition: all 0.3s ease;
     }
     header.scrolled { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); }
-    .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
-    .logo-container { display: flex; align-items: center; gap: 12px; }
-    /* FIX: header logo uses actual image */
-    .logo-image { height: 48px; width: auto; display: block; }
+    .nav { display: flex; justify-content:space-between; align-items:center; padding:16px 0; }
+    .logo-container { display:flex; align-items:center; gap:12px; }
+    .logo-image { height:48px; width:auto; display:block; }
     .logo-text {
-      font-size: 26px; font-weight: 900; letter-spacing: -0.02em;
-      background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      font-size:26px; font-weight:900; letter-spacing:-0.02em;
+      background: var(--gradient);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
     }
-    .nav-links { display: flex; gap: 32px; align-items: center; }
-    .nav-links a { color: var(--dark); text-decoration: none; font-weight: 600; font-size: 15px; transition: color 0.2s; }
+    .nav-links { display:flex; gap:32px; align-items:center; }
+    .nav-links a { color:var(--dark); text-decoration:none; font-weight:600; font-size:15px; transition: color .2s; }
     .nav-links a:hover { color: var(--primary-coral); }
 
-
     /* Mobile menu toggle */
-    .mobile-menu-toggle { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
-    .mobile-menu-toggle span { width: 24px; height: 3px; background: var(--dark); border-radius: 2px; }
-
+    .$mobileMenu$ { display:none; } /* placeholder for quick find */
+    .mobile-menu-toggle { display:none; flex-direction:column; gap:4px; cursor:pointer; }
+    .mobile-menu-toggle span { width:24px; height:3px; background:var(--dark); border-radius:2px; }
 
     /* Buttons */
-    .btn { display: inline-block; padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all 0.3s ease; cursor: pointer; border: none; }
-    .btn-primary { background: var(--gradient); color: white; box-shadow: 0 4px 20px rgba(244, 168, 155, 0.3); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(244, 168, 155, 0.4); }
-    .btn-secondary { background: white; color: var(--primary-coral); border: 2px solid var(--primary-coral); }
-    .btn-secondary:hover { background: var(--primary-coral); color: white; }
-    .btn-large { padding: 16px 32px; font-size: 17px; }
+    .btn { display:inline-block; padding:12px 24px; border-radius:12px; font-weight:700; font-size:15px; text-decoration:none; transition:all .3s ease; cursor:pointer; border:none; }
+    .btn-primary { background:var(--gradient); color:#fff; box-shadow:0 4px 20px rgba(244,168,155,.3); }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(244,168,155,.4); }
+    .btn-secondary { background:#fff; color:var(--primary-coral); border:2px solid var(--primary-coral); }
+    .btn-secondary:hover { background:var(--primary-coral); color:#fff; }
+    .btn-large { padding:16px 32px; font-size:17px; }
 
-
-    /* Hero Section */
+    /* Hero */
     .hero {
       padding: 140px 0 100px;
       background: linear-gradient(135deg, var(--primary-coral) 0%, var(--primary-peach) 25%, var(--primary-mint) 75%, var(--primary-teal) 100%);
@@ -110,181 +100,140 @@
     }
     .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; text-align: center; color: white; }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px;
-      background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 50px;
-      font-size: 14px; font-weight: 800; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; background: rgba(255,255,255,.25);
+      backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.4); border-radius: 50px; font-size: 14px; font-weight: 800;
+      margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,.1);
     }
-    .hero h1 { font-size: 64px; font-weight: 900; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); }
-    .hero-subtitle { font-size: 22px; line-height: 1.6; opacity: 0.95; margin-bottom: 40px; max-width: 700px; margin-inline: auto; }
-    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
-
+    .hero h1 { font-size:64px; font-weight:900; line-height:1.1; margin-bottom:24px; letter-spacing:-0.02em; text-shadow:0 2px 20px rgba(0,0,0,.1); }
+    .hero-subtitle { font-size:22px; line-height:1.6; opacity:.95; margin-bottom:40px; max-width:700px; margin-inline:auto; }
+    .hero-cta { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:48px; }
 
     .trust-bar {
-      display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;
-      padding: 28px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-      border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); margin-top: 60px; border: 1px solid rgba(255, 255, 255, 0.3);
+      display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; padding:28px;
+      background:rgba(255,255,255,.95); backdrop-filter:blur(10px); border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,.15);
+      margin-top:60px; border:1px solid rgba(255,255,255,.3);
     }
-    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; color: var(--dark); }
+    .trust-item { display:flex; align-items:center; gap:8px; font-size:15px; font-weight:700; color:var(--dark); }
     .trust-item svg { color: var(--success); }
 
-
-    /* Stats Section */
-    .stats { padding: 80px 0; background: white; }
-    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-    .stat-card {
-      text-align: center; padding: 32px;
-      background: linear-gradient(135deg, rgba(244, 168, 155, 0.05) 0%, rgba(156, 197, 196, 0.05) 100%);
-      border-radius: 20px; border: 1px solid rgba(244, 168, 155, 0.2);
-    }
+    /* Stats */
+    .stats { padding:80px 0; background:#fff; }
+    .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:40px; }
+    .stat-card { text-align:center; padding:32px; background:linear-gradient(135deg, rgba(244,168,155,.05) 0%, rgba(156,197,196,.05) 100%); border-radius:20px; border:1px solid rgba(244,168,155,.2); }
     .stat-number {
-      font-size: 48px; font-weight: 900; margin-bottom: 8px;
-      background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      font-size:48px; font-weight:900; background:linear-gradient(135deg, var(--primary-coral) 0%, var(--primary-teal) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:8px;
     }
-    .stat-label { font-size: 15px; color: var(--gray); font-weight: 600; }
+    .stat-label{ font-size:15px; color:var(--gray); font-weight:600; }
 
-
-    /* Section Styles */
-    .section { padding: 100px 0; }
+    /* Sections */
+    .section { padding:100px 0; }
     .section-alt { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
-    .section-header { text-align: center; max-width: 800px; margin: 0 auto 60px; }
-    .section-tag {
-      display: inline-block; padding: 6px 16px; background: rgba(244, 168, 155, 0.15);
-      color: var(--primary-coral); border-radius: 50px; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;
-    }
-    .section-title { font-size: 48px; font-weight: 900; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em; }
-    .section-subtitle { font-size: 20px; color: var(--gray); line-height: 1.6; }
+    .section-header { text-align:center; max-width:800px; margin:0 auto 60px; }
+    .section-tag { display:inline-block; padding:6px 16px; background:rgba(244,168,155,.15); color:var(--primary-coral); border-radius:50px; font-size:13px; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; }
+    .section-title { font-size:48px; font-weight:900; line-height:1.2; margin-bottom:16px; letter-spacing:-.02em; }
+    .section-subtitle{ font-size:20px; color:var(--gray); line-height:1.6; }
 
-
-    /* ROI Calculator */
-    .roi-calculator {
-      background: white; padding: 48px; border-radius: 24px; box-shadow: 0 8px 40px rgba(0,0,0,.08);
-      max-width: 700px; margin: 60px auto 0; border: 2px solid rgba(244,168,155,.2);
-    }
-    .roi-calculator h3 { font-size: 28px; font-weight: 800; margin-bottom: 32px; text-align: center; }
-    .roi-row { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 2px solid var(--light-gray); font-size: 17px; }
-    .roi-row:last-child { border-bottom: none; margin-top: 20px; padding-top: 32px; border-top: 3px solid var(--primary-coral); }
-    .roi-label { font-weight: 600; color: var(--dark); }
-    .roi-value { font-weight: 800; font-size: 24px; }
-    .roi-value.positive { color: var(--success); }
-    .roi-value.negative { color: #ef4444; }
-
+    /* ROI */
+    .roi-calculator { background:#fff; padding:48px; border-radius:24px; box-shadow:0 8px 40px rgba(0,0,0,.08); max-width:700px; margin:60px auto 0; border:2px solid rgba(244,168,155,.2); }
+    .roi-calculator h3{ font-size:28px; font-weight:800; margin-bottom:32px; text-align:center; }
+    .roi-row { display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:2px solid var(--light-gray); font-size:17px; }
+    .roi-row:last-child { border-bottom:none; margin-top:20px; padding-top:32px; border-top:3px solid var(--primary-coral); }
+    .roi-label{ font-weight:600; color:var(--dark); }
+    .roi-value{ font-weight:800; font-size:24px; }
+    .roi-value.positive{ color:var(--success); }
+    .roi-value.negative{ color:#ef4444; }
 
     /* Use Cases */
-    .use-case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 60px; }
-    .use-case-card {
-      background: white; padding: 48px; border-radius: 24px; box-shadow: 0 4px 30px rgba(0,0,0,.06);
-      transition: all 0.3s ease; border: 2px solid rgba(244,168,155,.1);
-    }
-    .use-case-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(244,168,155,.2); border-color: var(--primary-coral); }
-    .use-case-card.featured { border-color: var(--primary-coral); background: linear-gradient(135deg, rgba(244,168,155,.03) 0%, rgba(156,197,196,.03) 100%); }
-    .use-case-icon { width: 80px; height: 80px; background: var(--gradient); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; margin-bottom: 24px; color: #fff; }
-    .use-case-card h3 { font-size: 28px; font-weight: 800; margin-bottom: 16px; }
-    .use-case-card p { font-size: 17px; color: var(--gray); line-height: 1.7; margin-bottom: 24px; }
-    .use-case-stats { display: flex; gap: 32px; padding: 24px; background: rgba(244,168,155,.08); border-radius: 16px; margin-top: 24px; }
-    .stat { flex: 1; }
-    .stat-number-small { font-size: 32px; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px; }
-    .stat-label-small { font-size: 13px; color: var(--gray); font-weight: 600; }
-
+    .use-case-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:32px; margin-top:60px; }
+    .use-case-card{ background:#fff; padding:48px; border-radius:24px; box-shadow:0 4px 30px rgba(0,0,0,.06); transition:all .3s ease; border:2px solid rgba(244,168,155,.1); }
+    .use-case-card:hover{ transform:translateY(-8px); box-shadow:0 20px 60px rgba(244,168,155,.2); border-color:var(--primary-coral); }
+    .use-case-card.featured{ border-color:var(--primary-coral); background:linear-gradient(135deg, rgba(244,168,155,.03) 0%, rgba(156,197,196,.03) 100%); }
+    .use-case-icon{ width:80px; height:80px; background:var(--gradient); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:40px; margin-bottom:24px; color:#fff; }
+    .use-case-card h3{ font-size:28px; font-weight:800; margin-bottom:16px; }
+    .use-case-card p{ font-size:17px; color:var(--gray); line-height:1.7; margin-bottom:24px; }
+    .use-case-stats{ display:flex; gap:32px; padding:24px; background:rgba(244,168,155,.08); border-radius:16px; margin-top:24px; }
+    .stat{ flex:1; }
+    .stat-number-small{ font-size:32px; font-weight:900; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:4px; }
+    .stat-label-small{ font-size:13px; color:var(--gray); font-weight:600; }
 
     /* Features */
-    .features { background: var(--dark); color: white; }
-    .features .section-subtitle { color: rgba(255, 255, 255, 0.7); }
-    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
-    .feature-card {
-      background: rgba(255,255,255,.05); backdrop-filter: blur(10px); padding: 40px; border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.1); transition: all .3s ease;
-    }
-    .feature-card:hover { background: rgba(255,255,255,.08); transform: translateY(-4px); border-color: var(--primary-coral); }
-    .feature-icon { font-size: 48px; margin-bottom: 24px; }
-    .feature-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
-    .feature-card p { color: rgba(255,255,255,.7); line-height: 1.7; font-size: 16px; }
-
+    .features{ background: var(--dark); color:#fff; }
+    .features .section-subtitle{ color:rgba(255,255,255,.7); }
+    .feature-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:60px; }
+    .feature-card{ background:rgba(255,255,255,.05); backdrop-filter:blur(10px); padding:40px; border-radius:20px; border:1px solid rgba(255,255,255,.1); transition:all .3s ease; }
+    .feature-card:hover{ background:rgba(255,255,255,.08); transform:translateY(-4px); border-color:var(--primary-coral); }
+    .feature-icon{ font-size:48px; margin-bottom:24px; }
+    .feature-card h3{ font-size:22px; font-weight:800; margin-bottom:12px; }
+    .feature-card p{ color:rgba(255,255,255,.8); line-height:1.7; font-size:16px; }
 
     /* Testimonials */
-    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
-    .testimonial-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 30px rgba(0,0,0,.06); border: 2px solid rgba(244,168,155,.1); position: relative; }
-    .quote-mark {
-      position: absolute; top: 20px; right: 20px; font-size: 60px; opacity: 0.1; font-weight: 900;
-      background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .stars { color: #fbbf24; font-size: 18px; margin-bottom: 16px; }
-    .testimonial-text { font-size: 16px; line-height: 1.7; color: var(--dark); margin-bottom: 24px; }
-    .testimonial-author { display: flex; align-items: center; gap: 16px; }
-    .author-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 20px; }
-    .author-info h4 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-    .author-info p { font-size: 14px; color: var(--gray); }
+    .testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:60px; }
+    .testimonial-card{ background:#fff; padding:40px; border-radius:20px; box-shadow:0 4px 30px rgba(0,0,0,.06); border:2px solid rgba(244,168,155,.1); position:relative; }
+    .quote-mark{ position:absolute; top:20px; right:20px; font-size:60px; opacity:.1; font-weight:900; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .stars{ color:#fbbf24; font-size:18px; margin-bottom:16px; }
+    .testimonial-text{ font-size:16px; line-height:1.7; color:var(--dark); margin-bottom:24px; }
+    .testimonial-author{ display:flex; align-items:center; gap:16px; }
+    .author-avatar{ width:56px; height:56px; border-radius:50%; background:var(--gradient); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:20px; }
+    .author-info h4{ font-size:16px; font-weight:800; margin-bottom:4px; }
+    .author-info p{ font-size:14px; color:var(--gray); }
 
-
-    /* CTA Section */
-    .cta-section {
-      padding: 120px 0;
+    /* CTA */
+    .cta-section{
+      padding:120px 0;
       background: var(--gradient);
-      color: white; text-align: center; position: relative; overflow: hidden;
+      color:#fff; text-align:center; position:relative; overflow:hidden;
     }
-    .cta-section::before {
-      content: ''; position: absolute; inset: 0;
+    .cta-section::before{
+      content:''; position:absolute; inset:0;
       background:
-        linear-gradient( to bottom, rgba(255,255,255,.08), rgba(255,255,255,0) );
+        radial-gradient(circle at 20% 50%,rgba(255,255,255,.15) 0%,transparent 50%),
+        radial-gradient(circle at 80% 80%,rgba(255,255,255,.15) 0%,transparent 50%);
     }
-    .cta-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-    .cta-section h2 { font-size: 52px; font-weight: 900; line-height: 1.2; margin-bottom: 24px; letter-spacing: -0.02em; }
-    .cta-section p { font-size: 22px; opacity: 0.95; margin-bottom: 40px; line-height: 1.6; }
-
+    .cta-content{ position:relative; z-index:1; max-width:800px; margin:0 auto; }
+    .cta-section h2{ font-size:52px; font-weight:900; line-height:1.2; margin-bottom:24px; letter-spacing:-.02em; }
+    .cta-section p{ font-size:22px; opacity:.95; margin-bottom:40px; }
 
     /* Footer */
-    footer { padding: 80px 0 40px; background: var(--dark); color: rgba(255, 255, 255, 0.7); }
-    .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
-    .footer-brand { display: flex; flex-direction: column; gap: 16px; }
-    /* FIX: nicer footer logo sizing */
-    .footer-logo { height: 64px; width: auto; display: block; }
-    .footer-brand p { font-size: 15px; line-height: 1.7; }
-    .footer-section h4 { color: white; font-size: 16px; font-weight: 800; margin-bottom: 20px; }
-    .footer-section a { display: block; color: rgba(255,255,255,.7); text-decoration: none; margin-bottom: 12px; font-size: 15px; transition: color 0.2s; }
-    .footer-section a:hover { color: white; }
-    .footer-bottom { padding-top: 40px; border-top: 1px solid rgba(255,255,255,.1); text-align: center; font-size: 14px; }
-
+    footer{ padding:80px 0 40px; background:var(--dark); color:rgba(255,255,255,.7); }
+    .footer-content{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; margin-bottom:60px; }
+    .footer-brand{ display:flex; flex-direction:column; gap:16px; }
+    .footer-logo{ height:48px; width:auto; }
+    .footer-brand p{ font-size:15px; line-height:1.7; }
+    .footer-section h4{ color:#fff; font-size:16px; font-weight:800; margin-bottom:20px; }
+    .footer-section a{ display:block; color:rgba(255,255,255,.7); text-decoration:none; margin-bottom:12px; font-size:15px; transition:color .2s; }
+    .footer-section a:hover{ color:#fff; }
+    .footer-bottom{ padding-top:40px; border-top:1px solid rgba(255,255,255,.1); text-align:center; font-size:14px; }
 
     /* Responsive */
-    @media (max-width: 1024px) {
-      .use-case-grid, .feature-grid, .testimonial-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width:1024px){
+      .feature-grid,.use-case-grid,.testimonial-grid{ grid-template-columns:1fr; }
+      .stats grid{ grid-template-columns:repeat(2,1fr); }
     }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-toggle { display: flex; }
-      .hero h1 { font-size: 42px; }
-      .hero-subtitle { font-size: 18px; }
-      .section-title { font-size: 36px; }
-      .section-subtitle { font-size: 18px; }
-      .hero-cta { flex-direction: column; align-items: stretch; }
-      .hero-cta .btn { width: 100%; text-align: center; }
-      .trust-bar { flex-direction: column; gap: 20px; align-items: flex-start; }
-      .footer-content { grid-template-columns: 1fr; gap: 40px; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .roi-calculator { padding: 32px 24px; }
-      .roi-row { flex-direction: column; align-items: flex-start; gap: 8px; }
-      .use-case-card, .feature-card, .testimonial-card { padding: 32px 24px; }
-      .footer-logo { height: 48px; } /* smaller logo on mobile */
-    }
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 32px; }
-      .hero-subtitle { font-size: 16px; }
-      .section-title { font-size: 28px; }
-      .btn-large { padding: 14px 24px; font-size: 15px; }
-      .logo-text { font-size: 22px; }
+    @media (max-width:768px){
+      .nav-links{ display:none; }
+      .mobile-menu-toggle{ display:flex; }
+      .hero h1{ font-size:42px; }
+      .hero-subtitle{ font-size:18px; }
+      .section-title{ font-size:36px; }
+      .section-subtitle{ font-size:18px; }
+      .hero-cta{ flex-direction:column; align-items:stretch; }
+      .hero-cta .btn{ width:100%; text-align:center; }
+      .trust-bar{ flex-direction:column; gap:20px; align-items:flex-start; }
+      .footer-content{ display:grid; grid-template-columns:1fr; gap:40px; }
+      .stats-grid{ grid-template-columns:1fr; }
+      .roi-calculator{ padding:32px 24px; }
+      .roi-row{ flex-direction:column; align-items:flex-start; gap:8px; }
     }
   </style>
 </head>
-
-
 <body>
+
   <!-- Header -->
   <header id="header">
     <div class="container">
       <nav class="nav">
         <div class="logo-container">
-          <!-- FIX: image logo in header -->
           <img src="/numaai-logo.png" alt="NuMeAi Logo" class="logo-image" />
           <span class="logo-text">NuMeAi</span>
         </div>
@@ -301,29 +250,27 @@
     </div>
   </header>
 
-
   <!-- Hero -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">🛍️ Trusted by 1,000+ Shopify & Etsy sellers</div>
+        <div class="hero-badge">🛍️ Trusted by 1,000+ Shopify &amp; Etsy sellers</div>
         <h1>Your AI Shop Assistant<br />Works 24/7. You Don't.</h1>
         <p class="hero-subtitle">
           The $18/month AI that answers customer questions instantly, recovers abandoned carts, and increases sales 20–40%. Built for small online sellers making $5K–$50K/month.
         </p>
         <div class="hero-cta">
-          <a href="https://www.numeai.ai/?wizard=1" class="btn btn-primary btn-large">Start Free Trial — 5 Min Setup</a>
+          <a href="https://app.numeai.ai" class="btn btn-primary btn-large">Start Free Trial — 5 Min Setup</a>
           <a href="#roi" class="btn btn-secondary btn-large">Calculate Your ROI</a>
         </div>
         <div class="trust-bar">
           <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg><span>No credit card</span></div>
           <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg><span>5-minute setup</span></div>
-          <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg><span>Integrates with Shopify & Etsy</span></div>
+          <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg><span>Integrates with Shopify &amp; Etsy</span></div>
         </div>
       </div>
     </div>
   </section>
-
 
   <!-- Stats -->
   <section class="stats">
@@ -337,18 +284,17 @@
     </div>
   </section>
 
-
   <!-- ROI -->
   <section class="section" id="roi">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">ROI Calculator</div>
         <h2 class="section-title">See Your Return on Investment</h2>
-        <p class="section-subtitle">Real numbers from actual Shopify & Etsy sellers using NuMeAi.</p>
+        <p class="section-subtitle">Real numbers from actual Shopify &amp; Etsy sellers using NuMeAi.</p>
       </div>
       <div class="roi-calculator">
         <h3>Your Monthly Break-Even</h3>
-        <div class="roi-row"><span class="roi-label">NuMeAi cost per month</span><span class="roi-value negative">-$18</span></div>
+        <div class="roi-row"><span class="roi-label">NuMeAi cost per month</span><span class=" roi-value negative">-$18</span></div>
         <div class="roi-row"><span class="roi-label">Average order value</span><span class="roi-value">$45</span></div>
         <div class="roi-row"><span class="roi-label">Extra sales to break even</span><span class="roi-value">1 sale</span></div>
         <div class="roi-row"><span class="roi-label">Avg extra sales/month</span><span class="roi-value">15–30</span></div>
@@ -356,7 +302,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- Use Cases -->
   <section class="section section-alt" id="use-cases">
@@ -369,8 +314,8 @@
       <div class="use-case-grid">
         <div class="use-case-card featured">
           <div class="use-case-icon">🛍️</div>
-          <h3>Shopify & Etsy Sellers</h3>
-          <p>Answer product questions, handle sizing, provide care instructions, and recover abandoned carts. Seamless with Shopify & Etsy for advanced ecommerce automation.</p>
+          <h3>Shopify &amp; Etsy Sellers</h3>
+          <p>Answer product questions, handle sizing, provide care instructions, and recover abandoned carts. Seamless with Shopify &amp; Etsy for advanced ecommerce automation.</p>
           <div class="use-case-stats">
             <div class="stat"><div class="stat-number-small">40%</div><div class="stat-label-small">Faster responses</div></div>
             <div class="stat"><div class="stat-number-small">25%</div><div class="stat-label-small">More sales</div></div>
@@ -379,7 +324,7 @@
         </div>
         <div class="use-case-card">
           <div class="use-case-icon">💼</div>
-          <h3>Coaches & Consultants</h3>
+          <h3>Coaches &amp; Consultants</h3>
           <p>Handle discovery, FAQs, and booking. Capture emails, triage leads, and hand off to your calendar seamlessly.</p>
           <div class="use-case-stats">
             <div class="stat"><div class="stat-number-small">300+</div><div class="stat-label-small">Qs/week</div></div>
@@ -391,82 +336,60 @@
     </div>
   </section>
 
-
   <!-- Features -->
   <section class="section features" id="features">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag" style="background: rgba(255,255,255,0.1); color: white;">Features</div>
-        <h2 class="section-title" style="color: white;">Everything You Need to Scale</h2>
-        <p class="section-subtitle">Professional AI technology. Simple setup. No code required.</p>
+        <div class="section-tag" style="background: rgba(255,255,255,0.1); color:#fff;">Features</div>
+        <h2 class="section-title" style="color:#fff;">Everything You Need to Scale</h2>
+        <p class="section-subtitle">Professional AI, simple setup, no code required.</p>
       </div>
       <div class="feature-grid">
         <div class="feature-card"><div class="feature-icon">⚡</div><h3>5-Minute Setup</h3><p>Answer 6 questions, upload your info, publish. Done.</p></div>
-        <div class="feature-card"><div class="feature-icon">🎤</div><h3>Voice & Text</h3><p>Natural conversations. Instant answers. Always on.</p></div>
-        <div class="feature-card"><div class="feature-icon">📊</div><h3>Lead Capture</h3><p>Collect emails, qualify prospects, and sync to your CRM.</p></div>
+        <div class="feature-card"><div class="feature-icon">🎤</div><h3>Voice &amp; Text</h3><p>Natural conversations. Instant answers. Always on.</p></div>
+        <div class="feature-card"><div class="feature-icon">📊</div><h3>Lead&nbsp;Capture</h3><p>Collect emails, qualify prospects, and sync to your CRM.</p></div>
       </div>
     </div>
   </section>
-
-
-  <!-- Testimonials -->
-  <section class="section" id="testimonials">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-tag">Reviews</div>
-        <h2 class="section-title">Loved by Small Business Owners</h2>
-        <p class="section-subtitle">Real results from real teams.</p>
-      </div>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="quote-mark">"</div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"My Etsy shop was losing sales because I couldn't answer questions fast enough. Now the AI handles sizing & shipping 24/7. +30% in a month."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">JC</div>
-            <div class="author-info"><h4>Jessica Chen</h4><p>Etsy Seller • $25K/mo</p></div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="quote-mark">"</div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"Setup in minutes. Answers before we meet; bookings up 25%. Integrates with our tools without dev work."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">MR</div>
-            <div class="author-info"><h4>Marcus R.</h4><p>Shopify Owner • $40K/mo</p></div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="quote-mark">"</div>
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">"We couldn’t afford a full-time SDR team. NuMeAi feels like one, always on."</p>
-          <div class="author-info" style="margin-top:8px;"><h4>Agency Founder</h4><p>NYC</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
   <!-- CTA -->
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Start Selling 24/7. Starting Today.</h2>
-        <p>Let visitors try it free. Convert with confidence. No credit card required.</p>
-        <a href="https://www.numeai.ai/?wizard=1" class="btn btn-secondary btn-large" style="background: white; color: #F4A89B; border: none; box-shadow: 0 8px 30px rgba(0,0,0,0.2);">
+        <h2>Start Today. Wow Them in Minutes.</h2>
+        <p>Let visitors try your Sim for free. Convert with confidence. No credit card required.</p>
+        <a href="https://www.numeai.ai/?wizard=1" class="btn btn-secondary btn-large" style="background:#fff; color:#F4A89B; border:none; box-shadow:0 8px 30px rgba(0,0,0,.2);">
           Create Your AI Shop Assistant — Free
         </a>
       </div>
     </div>
   </section>
 
+  <!-- About -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Our Story</div>
+        <h2 class="section-title">About NuMeAi</h2>
+        <p class="section-subtitle">
+          NuMeAi was created by entrepreneurs who believe powerful AI should help humans work smarter, not replace them.
+        </p>
+      </div>
+      <p style="max-width:800px; margin:0 auto; font-size:18px; line-height:1.8; color:#334155;">
+        Born from real startup experience, NuMeAi began as a tool to automate daily business conversations — turning expertise into a living, breathing AI assistant that speaks in your voice, 24/7.
+        <br /><br />
+        Today, NuMeAi helps Shopify sellers, creators, and coaches engage customers, qualify leads, and increase sales without needing full-time staff.
+        <br /><br />
+        Our mission is simple: <strong>empower entrepreneurs to scale their impact</strong> by combining human knowledge with accessible AI tools.
+      </p>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-     
           <p>NuMeAi helps entrepreneurs and creators scale their expertise with a human-like AI coach that onboards clients, answers questions, and drives revenue — 24/7.</p>
         </div>
         <div class="footer-section">
@@ -478,10 +401,10 @@
         </div>
         <div class="footer-section">
           <h4>Company</h4>
-          <a href="mailto:hello@numeai.ai">Contact</a>
-          <a href="#">About</a>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
+          <a href="javascript:void(0);" onclick="openContact()">Contact</a>
+          <a href="#about">About</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
         </div>
         <div class="footer-section">
           <h4>Resources</h4>
@@ -497,6 +420,26 @@
     </div>
   </footer>
 
+  <!-- Contact Modal -->
+  <div id="contact-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:2000; align-items:center; justify-content:center;">
+    <form action="mailto:hi@numeai.ai" method="post" enctype="text/plain"
+          style="background:white; padding:32px; border-radius:16px; max-width:480px; width:90%; box-shadow:0 10px 40px rgba(0,0,0,0.2);">
+      <h2 style="margin-bottom:16px; font-size:24px;">Contact NuMeAi</h2>
+      <p style="margin-bottom:20px; color:#64748b;">We’d love to hear from you. Fill out the form below and we’ll reply within 24 hours.</p>
+      <label style="font-weight:600; display:block; margin-bottom:6px;">Your Name</label>
+      <input name="name" required style="width:100%; padding:10px; margin-bottom:16px; border:1px solid #e2e8f0; border-radius:8px;">
+      <label style="font-weight:600; display:block; margin-bottom:6px;">Your Email</label>
+      <input name="email" type="email" required style="width:100%; padding:10px; margin-bottom:16px; border:1px solid #e28f0; border-radius:8px;">
+      <label style="font-weight:600; display:block; margin-bottom:6px;">Message</label>
+      <textarea name="message" rows="5" required style="width:100%; padding:10px; border:1px solid #e2e8f0; border-radius:8px;"></textarea>
+      <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:20px;">
+        <button type="button" onclick="closeContact()"
+                style="background:#f1f5f9; border:none; padding:10px 16px; border-radius:8px; cursor:pointer;">Cancel</button>
+        <button type="submit"
+                style="background:#111827; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer;">Send Message</button>
+      </div>
+    </form>
+  </div>
 
   <script>
     // Header scroll effect
@@ -504,7 +447,6 @@
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 10);
     });
-
 
     // Mobile menu toggle
     const toggle = document.querySelector('.mobile-menu-toggle');
@@ -532,32 +474,31 @@
         }
       });
 
-
-      // Close menu on link click (mobile)
+      // Close menu when clicking a link (mobile)
       navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           if (window.innerWidth <= 768) navLinks.style.display = 'none';
         });
       });
 
-
       // Close on outside click (mobile)
       document.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
-          if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+          if (!toggle.contains(e.point && e.target ? e.target : e.target) && !navLinks.contains(e.target)) {
             navLinks.style.display = 'none';
+            toggle.setAccessible = false;
             toggle.setAttribute('aria-expanded', 'false');
           }
         }
       });
     }
 
+    function openContact(){ document.getElementById('contact-modal').style.display = 'flex'; }
+    function closeContact(){ document.getElementById('contact-modal').style.display = 'none'; }
 
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
-
 
