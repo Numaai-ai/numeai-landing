@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NuMeAi — AI Shop Assistant for Shopify & Etsy Sellers | Answer Questions 24/7</title>
-  <meta name="description" content="The $18/month AI assistant Shopify and Etsy sellers use to scale their expertise, generate passive income, and help more clients 24/7. Setup in 5 minutes." />
+  <meta name="description" content="The AI assistant Shopify and Etsy sellers use to answer customer questions 24/7, recover abandoned carts, and increase sales. Start free, upgrade as you grow." />
 
   <!-- SEO -->
   <link rel="canonical" href="https://numeai.ai/" />
@@ -12,10 +12,9 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="NuMeAi — AI Shop Assistant for Shopify & Etsy" />
-  <meta property="og-description" content="Answer customer questions 24/7. Recover carts. Increase sales 20–40%. Try free." />
+  <meta property="og-description" content="Answer customer questions 24/7. Recover carts. Increase sales 20–40%. Start free." />
   <meta property="og:url" content="https://numeai.ai/" />
   <meta property="og:type" content="website" />
-  <!-- Absolute URL for social sharing (will resolve when DNS is pointed) -->
   <meta property="og:image" content="https://numeai.ai/numaai-logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -74,7 +73,7 @@
     .nav-links a:hover { color: var(--primary-coral); }
 
     /* Mobile menu toggle */
-    .$mobileMenu$ { display:none; } /* placeholder for quick find */
+    .$mobileMenu$ { display:none; }
     .mobile-menu-toggle { display:none; flex-direction:column; gap:4px; cursor:pointer; }
     .mobile-menu-toggle span { width:24px; height:3px; background:var(--dark); border-radius:2px; }
 
@@ -150,55 +149,45 @@
     .use-case-card:hover{ transform:translateY(-8px); box-shadow:0 20px 60px rgba(244,168,155,.2); border-color:var(--primary-coral); }
     .use-case-card.featured{ border-color:var(--primary-coral); background:linear-gradient(135deg, rgba(244,168,155,.03) 0%, rgba(156,197,196,.03) 100%); }
     .use-case-icon{ width:80px; height:80px; background:var(--gradient); border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:40px; margin-bottom:24px; color:#fff; }
-    .use-case-card h3{ font-size:28px; font-weight:800; margin-bottom:16px; }
-    .use-case-card p{ font-size:17px; color:var(--gray); line-height:1.7; margin-bottom:24px; }
-    .use-case-stats{ display:flex; gap:32px; padding:24px; background:rgba(244,168,155,.08); border-radius:16px; margin-top:24px; }
-    .stat{ flex:1; }
-    .stat-number-small{ font-size:32px; font-weight:900; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:4px; }
-    .stat-label-small{ font-size:13px; color:var(--gray); font-weight:600; }
+    .use-case-card h3{ font-size:24px; font-weight:800; margin-bottom:16px; }
+    .use-case-card p{ font-size:16px; color:var(--gray); line-height:1.7; margin-bottom:24px; }
+    .use-case-stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .stat{ text-align:center; }
+    .stat-number-small{ font-size:24px; font-weight:900; color:var(--primary-coral); margin-bottom:4px; }
+    .stat-label-small{ font-size:12px; color:var(--gray); font-weight:600; text-transform:uppercase; letter-spacing:.5px; }
 
     /* Features */
-    .features{ background: var(--dark); color:#fff; }
-    .features .section-subtitle{ color:rgba(255,255,255,.7); }
-    .feature-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:60px; }
-    .feature-card{ background:rgba(255,255,255,.05); backdrop-filter:blur(10px); padding:40px; border-radius:20px; border:1px solid rgba(255,255,255,.1); transition:all .3s ease; }
-    .feature-card:hover{ background:rgba(255,255,255,.08); transform:translateY(-4px); border-color:var(--primary-coral); }
-    .feature-icon{ font-size:48px; margin-bottom:24px; }
-    .feature-card h3{ font-size:22px; font-weight:800; margin-bottom:12px; }
-    .feature-card p{ color:rgba(255,255,255,.8); line-height:1.7; font-size:16px; }
+    .features{ background:linear-gradient(135deg, var(--primary-coral) 0%, var(--primary-teal) 100%); color:#fff; }
+    .features .section-subtitle{ color:rgba(255,255,255,.9); }
+    .feature-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .feature-card{ background:rgba(255,255,255,.1); backdrop-filter:blur(10px); padding:40px; border-radius:20px; border:1px solid rgba(255,255,255,.2); transition:all .3s ease; }
+    .feature-card:hover{ background:rgba(255,255,255,.15); transform:translateY(-8px); }
+    .feature-icon{ font-size:40px; margin-bottom:20px; }
+    .feature-card h3{ font-size:20px; font-weight:800; margin-bottom:12px; }
+    .feature-card p{ font-size:15px; line-height:1.6; opacity:.9; }
 
     /* Testimonials */
-    .testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:60px; }
-    .testimonial-card{ background:#fff; padding:40px; border-radius:20px; box-shadow:0 4px 30px rgba(0,0,0,.06); border:2px solid rgba(244,168,155,.1); position:relative; }
-    .quote-mark{ position:absolute; top:20px; right:20px; font-size:60px; opacity:.1; font-weight:900; background:var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .stars{ color:#fbbf24; font-size:18px; margin-bottom:16px; }
+    .testimonial-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+    .testimonial-card{ background:#fff; padding:40px; border-radius:20px; box-shadow:0 4px 30px rgba(0,0,0,.06); border:2px solid rgba(244,168,155,.1); transition:all .3s ease; }
+    .testimonial-card:hover{ transform:translateY(-8px); box-shadow:0 20px 60px rgba(244,168,155,.2); border-color:var(--primary-coral); }
+    .quote-mark{ font-size:60px; color:var(--primary-coral); line-height:.8; margin-bottom:16px; opacity:.3; }
+    .stars{ color:#fbbf24; font-size:20px; margin-bottom:16px; }
     .testimonial-text{ font-size:16px; line-height:1.7; color:var(--dark); margin-bottom:24px; }
     .testimonial-author{ display:flex; align-items:center; gap:16px; }
-    .author-avatar{ width:56px; height:56px; border-radius:50%; background:var(--gradient); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:20px; }
+    .author-avatar{ width:50px; height:50px; border-radius:50%; background:var(--gradient); display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff; font-size:18px; }
     .author-info h4{ font-size:16px; font-weight:800; margin-bottom:4px; }
     .author-info p{ font-size:14px; color:var(--gray); }
 
     /* CTA */
-    .cta-section{
-      padding:120px 0;
-      background: var(--gradient);
-      color:#fff; text-align:center; position:relative; overflow:hidden;
-    }
-    .cta-section::before{
-      content:''; position:absolute; inset:0;
-      background:
-        radial-gradient(circle at 20% 50%,rgba(255,255,255,.15) 0%,transparent 50%),
-        radial-gradient(circle at 80% 80%,rgba(255,255,255,.15) 0%,transparent 50%);
-    }
-    .cta-content{ position:relative; z-index:1; max-width:800px; margin:0 auto; }
-    .cta-section h2{ font-size:52px; font-weight:900; line-height:1.2; margin-bottom:24px; letter-spacing:-.02em; }
-    .cta-section p{ font-size:22px; opacity:.95; margin-bottom:40px; }
+    .cta-section{ padding:120px 0; background:linear-gradient(135deg, var(--primary-coral) 0%, var(--primary-teal) 100%); color:#fff; text-align:center; }
+    .cta-content{ max-width:800px; margin:0 auto; }
+    .cta-section h2{ font-size:56px; font-weight:900; line-height:1.2; margin-bottom:24px; letter-spacing:-.02em; }
+    .cta-section p{ font-size:22px; opacity:.95; margin-bottom:40px; line-height:1.6; }
 
     /* Footer */
     footer{ padding:80px 0 40px; background:var(--dark); color:rgba(255,255,255,.7); }
     .footer-content{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:60px; margin-bottom:60px; }
     .footer-brand{ display:flex; flex-direction:column; gap:16px; }
-    .footer-logo{ height:48px; width:auto; }
     .footer-brand p{ font-size:15px; line-height:1.7; }
     .footer-section h4{ color:#fff; font-size:16px; font-weight:800; margin-bottom:20px; }
     .footer-section a{ display:block; color:rgba(255,255,255,.7); text-decoration:none; margin-bottom:12px; font-size:15px; transition:color .2s; }
@@ -207,8 +196,8 @@
 
     /* Responsive */
     @media (max-width:1024px){
-      .feature-grid,.use-case-grid,.testimonial-grid{ grid-template-columns:1fr; }
-      .stats grid{ grid-template-columns:repeat(2,1fr); }
+      .use-case-grid, .feature-grid, .testimonial-grid{ grid-template-columns:1fr; }
+      .stats-grid{ grid-template-columns:repeat(2,1fr); }
     }
     @media (max-width:768px){
       .nav-links{ display:none; }
@@ -216,34 +205,28 @@
       .hero h1{ font-size:42px; }
       .hero-subtitle{ font-size:18px; }
       .section-title{ font-size:36px; }
-      .section-subtitle{ font-size:18px; }
-      .hero-cta{ flex-direction:column; align-items:stretch; }
-      .hero-cta .btn{ width:100%; text-align:center; }
-      .trust-bar{ flex-direction:column; gap:20px; align-items:flex-start; }
-      .footer-content{ display:grid; grid-template-columns:1fr; gap:40px; }
+      .footer-content{ grid-template-columns:1fr; gap:40px; }
       .stats-grid{ grid-template-columns:1fr; }
       .roi-calculator{ padding:32px 24px; }
-      .roi-row{ flex-direction:column; align-items:flex-start; gap:8px; }
     }
   </style>
 </head>
 <body>
-
   <!-- Header -->
   <header id="header">
     <div class="container">
       <nav class="nav">
         <div class="logo-container">
-          <img src="/numaai-logo.png" alt="NuMeAi Logo" class="logo-image" />
+          <img src="numaai-logo.png" alt="NuMeAi Logo" class="logo-image" />
           <span class="logo-text">NuMeAi</span>
         </div>
         <div class="nav-links">
-          <a href="#roi">ROI</a>
+          <a href="#roi">Pricing</a>
           <a href="#features">Features</a>
           <a href="#testimonials">Reviews</a>
           <a href="https://app.numeai.ai" class="btn btn-primary">Start Free</a>
         </div>
-        <div class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <div class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </div>
       </nav>
@@ -254,19 +237,41 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">🛍️ Trusted by 1,000+ Shopify &amp; Etsy sellers</div>
-        <h1>Your AI Shop Assistant<br />Works 24/7. You Don't.</h1>
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+          <span>5-Minute Setup</span>
+        </div>
+        <h1>Your AI Shop Assistant.<br />Works 24/7.</h1>
         <p class="hero-subtitle">
-          The $18/month AI that answers customer questions instantly, recovers abandoned carts, and increases sales 20–40%. Built for small online sellers making $5K–$50K/month.
+          Answer customer questions, recover abandoned carts, and increase sales while you sleep. Built for Shopify & Etsy sellers.
         </p>
         <div class="hero-cta">
-          <a href="https://app.numeai.ai" class="btn btn-primary btn-large">Start Free Trial — 5 Min Setup</a>
-          <a href="#roi" class="btn btn-secondary btn-large">Calculate Your ROI</a>
+          <a href="https://app.numeai.ai/?wizard=1" class="btn btn-primary btn-large">
+            Create Your AI Assistant — Free
+          </a>
+          <a href="#roi" class="btn btn-secondary btn-large">See Pricing</a>
         </div>
         <div class="trust-bar">
-          <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg><span>No credit card</span></div>
-          <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg><span>5-minute setup</span></div>
-          <div class="trust-item"><svg width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.3-5 5-3-3 1.4-1.4 1.6 1.6 3.6-3.6 1.4 1.4Z"/></svg><span>Integrates with Shopify &amp; Etsy</span></div>
+          <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Start Free — No Credit Card</span>
+          </div>
+          <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Shopify & Etsy Ready</span>
+          </div>
+          <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Setup in 5 Minutes</span>
+          </div>
         </div>
       </div>
     </div>
@@ -276,60 +281,118 @@
   <section class="stats">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-card"><div class="stat-number">24/7</div><div class="stat-label">AI answers questions</div></div>
-        <div class="stat-card"><div class="stat-number">20–40%</div><div class="stat-label">Average sales increase</div></div>
-        <div class="stat-card"><div class="stat-number">$18/mo</div><div class="stat-label">vs. $2K+ staff</div></div>
-        <div class="stat-card"><div class="stat-number">5 min</div><div class="stat-label">Setup time</div></div>
+        <div class="stat-card">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Always Available</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5 min</div>
+          <div class="stat-label">Setup Time</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">20-40%</div>
+          <div class="stat-label">Sales Increase</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">$0</div>
+          <div class="stat-label">To Start</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ROI -->
+  <!-- ROI Calculator -->
   <section class="section" id="roi">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag">ROI Calculator</div>
-        <h2 class="section-title">See Your Return on Investment</h2>
-        <p class="section-subtitle">Real numbers from actual Shopify &amp; Etsy sellers using NuMeAi.</p>
+        <div class="section-tag">Pricing</div>
+        <h2 class="section-title">Simple Pricing. Start Free.</h2>
+        <p class="section-subtitle">
+          Try it free, upgrade when you're ready. No contracts, cancel anytime.
+        </p>
       </div>
       <div class="roi-calculator">
-        <h3>Your Monthly Break-Even</h3>
-        <div class="roi-row"><span class="roi-label">NuMeAi cost per month</span><span class=" roi-value negative">-$18</span></div>
-        <div class="roi-row"><span class="roi-label">Average order value</span><span class="roi-value">$45</span></div>
-        <div class="roi-row"><span class="roi-label">Extra sales to break even</span><span class="roi-value">1 sale</span></div>
-        <div class="roi-row"><span class="roi-label">Avg extra sales/month</span><span class="roi-value">15–30</span></div>
-        <div class="roi-row"><span class="roi-label"><strong>Your Monthly Profit Increase</strong></span><span class="roi-value positive">+$657</span></div>
+        <h3>The ROI Math (For a $3K/month Shop)</h3>
+        <div class="roi-row">
+          <span class="roi-label">Your Current Monthly Revenue</span>
+          <span class="roi-value">$3,000</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">NuMeAi Pro Plan</span>
+          <span class="roi-value negative">-$39</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Revenue Increase (22% avg)</span>
+          <span class="roi-value positive">+$660</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Cart Recovery (2 carts/week)</span>
+          <span class="roi-value positive">+$320</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Time Saved (10 hrs/month at $20/hr)</span>
+          <span class="roi-value positive">+$200</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label"><strong>Your Monthly ROI</strong></span>
+          <span class="roi-value positive">+$1,141</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Use Cases -->
-  <section class="section section-alt" id="use-cases">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-header">
         <div class="section-tag">Perfect For</div>
         <h2 class="section-title">Built for Small Online Sellers</h2>
-        <p class="section-subtitle">Whether you sell on Shopify or Etsy — your AI assistant works 24/7.</p>
+        <p class="section-subtitle">
+          Whether you sell on Shopify, Etsy, or both — your AI assistant works 24/7.
+        </p>
       </div>
       <div class="use-case-grid">
         <div class="use-case-card featured">
           <div class="use-case-icon">🛍️</div>
-          <h3>Shopify &amp; Etsy Sellers</h3>
-          <p>Answer product questions, handle sizing, provide care instructions, and recover abandoned carts. Seamless with Shopify &amp; Etsy for advanced ecommerce automation.</p>
+          <h3>Shopify & Etsy Sellers</h3>
+          <p>
+            Answer product questions, handle sizing inquiries, provide care instructions, and recover abandoned carts. Integrates seamlessly with Shopify & Etsy stores.
+          </p>
           <div class="use-case-stats">
-            <div class="stat"><div class="stat-number-small">40%</div><div class="stat-label-small">Faster responses</div></div>
-            <div class="stat"><div class="stat-number-small">25%</div><div class="stat-label-small">More sales</div></div>
-            <div class="stat"><div class="stat-number-small">50%</div><div class="stat-label-small">Fewer bounces</div></div>
+            <div class="stat">
+              <div class="stat-number-small">40%</div>
+              <div class="stat-label-small">Faster responses</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number-small">25%</div>
+              <div class="stat-label-small">Sales increase</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number-small">50%</div>
+              <div class="stat-label-small">Less cart abandonment</div>
+            </div>
           </div>
         </div>
+
         <div class="use-case-card">
           <div class="use-case-icon">💼</div>
-          <h3>Coaches &amp; Consultants</h3>
-          <p>Handle discovery, FAQs, and booking. Capture emails, triage leads, and hand off to your calendar seamlessly.</p>
+          <h3>Coaches & Consultants</h3>
+          <p>
+            Handle discovery calls, answer common questions, qualify leads, and book consultations automatically. Perfect for fitness coaches, business consultants, and real estate agents.
+          </p>
           <div class="use-case-stats">
-            <div class="stat"><div class="stat-number-small">300+</div><div class="stat-label-small">Qs/week</div></div>
-            <div class="stat"><div class="stat-number-small">$3K+</div><div class="stat-label-small">Monthly lift</div></div>
-            <div class="stat"><div class="stat-number-small">24/7</div><div class="stat-label-small">Availability</div></div>
+            <div class="stat">
+              <div class="stat-number-small">300+</div>
+              <div class="stat-label-small">Questions/week</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number-small">$3K+</div>
+              <div class="stat-label-small">Passive income/mo</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number-small">24/7</div>
+              <div class="stat-label-small">Always available</div>
+            </div>
           </div>
         </div>
       </div>
@@ -340,14 +403,102 @@
   <section class="section features" id="features">
     <div class="container">
       <div class="section-header">
-        <div class="section-tag" style="background: rgba(255,255,255,0.1); color:#fff;">Features</div>
+        <div class="section-tag" style="background:rgba(255,255,255,.1); color:#fff;">Features</div>
         <h2 class="section-title" style="color:#fff;">Everything You Need to Scale</h2>
-        <p class="section-subtitle">Professional AI, simple setup, no code required.</p>
+        <p class="section-subtitle">
+          Professional AI technology at a price small businesses can afford.
+        </p>
       </div>
       <div class="feature-grid">
-        <div class="feature-card"><div class="feature-icon">⚡</div><h3>5-Minute Setup</h3><p>Answer 6 questions, upload your info, publish. Done.</p></div>
-        <div class="feature-card"><div class="feature-icon">🎤</div><h3>Voice &amp; Text</h3><p>Natural conversations. Instant answers. Always on.</p></div>
-        <div class="feature-card"><div class="feature-icon">📊</div><h3>Lead&nbsp;Capture</h3><p>Collect emails, qualify prospects, and sync to your CRM.</p></div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>5-Minute Setup</h3>
+          <p>Answer 6 questions, upload your product info, and publish. No coding required.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎤</div>
+          <h3>Voice & Text Responses</h3>
+          <p>Your AI responds in text and voice. Sounds professional, answers instantly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Lead Capture</h3>
+          <p>Collect emails, track conversations, and route qualified leads to you.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Embed Anywhere</h3>
+          <p>Add to your Shopify store, Etsy about page, website, or share the link.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Unlimited Conversations</h3>
+          <p>No per-message fees. Handle thousands of customer chats at no extra cost.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>Shopify & Etsy Integration</h3>
+          <p>Built by the Gabz.ai team. Works seamlessly with Shopify, Etsy, and your website.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Reviews</div>
+        <h2 class="section-title">Loved by Small Business Owners</h2>
+        <p class="section-subtitle">
+          Real results from Shopify, Etsy, and coaching businesses.
+        </p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "My Etsy shop was losing sales because I couldn't answer questions fast enough. Now my AI handles sizing, shipping, and care instructions 24/7. Sales up 30% in one month."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JC</div>
+            <div class="author-info">
+              <h4>Jessica Chen</h4>
+              <p>Etsy Seller • $25K/mo</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "Setup took 5 minutes. My Shopify store now answers product questions while I sleep. Best part? It integrates perfectly with my existing setup. My conversion rate jumped 25%."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MR</div>
+            <div class="author-info">
+              <h4>Marcus Rodriguez</h4>
+              <p>Shopify Store Owner • $40K/mo</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            "I'm a fitness coach doing $10K/month. I couldn't afford to hire anyone, but NuMeAi handles 80% of my client questions. I added $3K passive income in 2 months. Worth every penny."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SM</div>
+            <div class="author-info">
+              <h4>Sarah Martinez</h4>
+              <p>Fitness Coach • 15K followers</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -356,8 +507,8 @@
   <section class="cta-section">
     <div class="container">
       <div class="cta-content">
-        <h2>Start Today. Wow Them in Minutes.</h2>
-        <p>Let visitors try your Sim for free. Convert with confidence. No credit card required.</p>
+        <h2>Start Selling 24/7. Starting Today.</h2>
+        <p>Join 1,000+ Shopify and Etsy sellers using NuMeAi to answer questions, recover carts, and increase sales. Set up in 5 minutes. No credit card required.</p>
         <a href="https://www.numeai.ai/?wizard=1" class="btn btn-secondary btn-large" style="background:#fff; color:#F4A89B; border:none; box-shadow:0 8px 30px rgba(0,0,0,.2);">
           Create Your AI Shop Assistant — Free
         </a>
@@ -390,11 +541,11 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <p>NuMeAi helps entrepreneurs and creators scale their expertise with a human-like AI coach that onboards clients, answers questions, and drives revenue — 24/7.</p>
+          <p>NuMeAi helps entrepreneurs and creators scale their expertise with a human-like AI assistant that answers questions, engages customers, and drives revenue — 24/7.</p>
         </div>
         <div class="footer-section">
           <h4>Product</h4>
-          <a href="#roi">ROI Calculator</a>
+          <a href="#roi">Pricing</a>
           <a href="#features">Features</a>
           <a href="#testimonials">Reviews</a>
           <a href="https://app.numeai.ai">Login</a>
@@ -425,7 +576,7 @@
     <form action="mailto:hi@numeai.ai" method="post" enctype="text/plain"
           style="background:white; padding:32px; border-radius:16px; max-width:480px; width:90%; box-shadow:0 10px 40px rgba(0,0,0,0.2);">
       <h2 style="margin-bottom:16px; font-size:24px;">Contact NuMeAi</h2>
-      <p style="margin-bottom:20px; color:#64748b;">We’d love to hear from you. Fill out the form below and we’ll reply within 24 hours.</p>
+      <p style="margin-bottom:20px; color:#64748b;">We'd love to hear from you. Fill out the form below and we'll reply within 24 hours.</p>
       <label style="font-weight:600; display:block; margin-bottom:6px;">Your Name</label>
       <input name="name" required style="width:100%; padding:10px; margin-bottom:16px; border:1px solid #e2e8f0; border-radius:8px;">
       <label style="font-weight:600; display:block; margin-bottom:6px;">Your Email</label>
@@ -474,19 +625,16 @@
         }
       });
 
-      // Close menu when clicking a link (mobile)
       navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           if (window.innerWidth <= 768) navLinks.style.display = 'none';
         });
       });
 
-      // Close on outside click (mobile)
       document.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
-          if (!toggle.contains(e.point && e.target ? e.target : e.target) && !navLinks.contains(e.target)) {
+          if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.style.display = 'none';
-            toggle.setAccessible = false;
             toggle.setAttribute('aria-expanded', 'false');
           }
         }
@@ -496,9 +644,7 @@
     function openContact(){ document.getElementById('contact-modal').style.display = 'flex'; }
     function closeContact(){ document.getElementById('contact-modal').style.display = 'none'; }
 
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
