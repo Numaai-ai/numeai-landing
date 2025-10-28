@@ -771,6 +771,805 @@
             <span class="logo-text" style="color:#fff;">NuMeAi</span>
           </div>
           <p>AI assistant for Etsy and Shopify sellers. Built by entrepreneurs who understand the challenges of scaling online.</p>
+          <p style="margin-top:12px; font-size:12px;">Product Inquiries: Email @ Hi@numaai.ai | 💳 Secure via Stripe </p>
+        </div>
+        <div class="footer-section">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="https://app.numeai.ai">Login</a>
+        </div>
+        <div class="footer-section">
+          <h4>Company</h4>
+          <a href="javascript:void(0);" onclick="openContact()">Contact</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <a href="#">Help Center</a>
+          <a href="https://gabz.ai" target="_blank">Gabz.ai</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Numa Ai Solutions, Inc, a . Built by the team behind <a href="https://gabz.ai" style="color:var(--primary-coral); text-decoration:none;">Gabz.ai</a>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ROI Modal -->
+  <div class="roi-modal" id="roi-modal">
+    <div class="roi-calculator">
+      <button class="roi-close" onclick="closeROI()">×</button>
+      <h3>💰 Your Monthly ROI</h3>
+      
+      <div class="roi-input-group">
+        <label for="monthly-sales">Monthly Sales ($)</label>
+        <input type="number" id="monthly-sales" value="5000" min="0" step="100">
+      </div>
+
+      <div class="roi-input-group">
+        <label for="avg-order">Avg Order Value ($)</label>
+        <input type="number" id="avg-order" value="50" min="0" step="5">
+      </div>
+
+      <div class="roi-input-group">
+        <label for="cart-rate">Cart Abandonment (%)</label>
+        <input type="number" id="cart-rate" value="70" min="0" max="100" step="5">
+      </div>
+
+      <div class="roi-results">
+        <div class="roi-row">
+          <span class="roi-label">Recovered Sales</span>
+          <span class="roi-value" id="recovered-carts">25</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Add'l Orders/Month</span>
+          <span class="roi-value" id="add-orders">35</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">NuMeAi Cost</span>
+          <span class="roi-value" style="color:var(--gray);">-$19</span>
+        </div>
+        <div class="roi-final">
+          <div class="roi-row">
+            <span class="roi-label">💰 NET Increase</span>
+            <span class="roi-value positive" id="net-increase">+$1,731</span>
+          </div>
+        </div>
+      </div>
+      
+      <p style="margin-top:20px; text-align:center; font-size:12px; color:var(--gray);">
+        *Based on industry averages. Results may vary.
+      </p>
+
+      <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary" style="width:100%; text-align:center; display:block; margin-top:20px;">
+        Get Started Free →
+      </a>
+    </div>
+  </div>
+
+  <!-- ROI FAB -->
+  <button class="roi-fab" onclick="openROI()">💰</button>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <div class="sticky-cta-text">
+      <strong>Ready to sell 24/7?</strong>
+      <span>5-min setup • Free plan</span>
+    </div>
+    <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary">Start Free</a>
+  </div>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('header');
+    const stickyCTA = document.getElementById('sticky-cta');
+    
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+      if (window.innerWidth <= 768) {
+        stickyCTA.classList.toggle('visible', window.scrollY > 500);
+      }
+    });
+
+    // Mobile menu
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const isOpen = navLinks.style.display === 'flex';
+        navLinks.style.display = isOpen ? 'none' : 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '60px';
+        navLinks.style.right = '20px';
+        navLinks.style.background = 'white';
+        navLinks.style.padding = '20px';
+        navLinks.style.borderRadius = '16px';
+        navLinks.style.boxShadow = '0 8px 30px rgba(0,0,0,0.15)';
+        navLinks.style.gap = '16px';
+      });
+    }
+
+    // Feature Tabs
+    function switchTab(index) {
+      document.querySelectorAll('.feature-tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+      document.querySelectorAll('.feature-tab-content').forEach((content, i) => {
+        content.classList.toggle('active', i === index);
+      });
+    }
+
+    // Testimonial Carousel
+    let currentTestimonial = 0;
+    const track = document.getElementById('testimonials-track');
+    const dots = document.getElementById('testimonial-dots');
+    const totalTestimonials = 4;
+
+    for (let i = 0; i < totalTestimonials; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToTestimonial(i);
+      dots.appendChild(dot);
+    }
+
+    function goToTestimonial(index) {
+      currentTestimonial = index;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      document.querySelectorAll('.testimonial-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    setInterval(() => {
+      currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+      goToTestimonial(currentTestimonial);
+    }, 5000);
+
+    // Swipe support
+    let touchStartX = 0;
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+    track.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      if (touchStartX - touchEndX > 50) {
+        goToTestimonial((currentTestimonial + 1) % totalTestimonials);
+      } else if (touchEndX - touchStartX > 50) {
+        goToTestimonial((currentTestimonial - 1 + totalTestimonials) % totalTestimonials);
+      }
+    });
+
+    // Collapsible
+    function toggleCollapsible() {
+      const content = document.getElementById('coming-soon');
+      const arrow = document.querySelector('.collapsible-arrow');
+      const isOpen = content.classList.toggle('open');
+      arrow.classList.toggle('open', isOpen);
+    }
+
+    // ROI Calculator
+    function calculateROI() {
+      const monthlySales = parseFloat(document.getElementById('monthly-sales').value) || 5000;
+      const avgOrder = parseFloat(document.getElementById('avg-order').value) || 50;
+      const cartRate = parseFloat(document.getElementById('cart-rate').value) || 70;
+
+      const monthlyOrders = monthlySales / avgOrder;
+      const abandonedCarts = monthlyOrders * (cartRate / 100);
+      const recoveredCarts = Math.round(abandonedCarts * 0.25);
+      const additionalOrders = Math.round(monthlyOrders * 0.10);
+      const totalNewOrders = recoveredCarts + additionalOrders;
+      const additionalRevenue = totalNewOrders * avgOrder;
+      const netIncrease = additionalRevenue - 19;
+
+      document.getElementById('recovered-carts').textContent = recoveredCarts;
+      document.getElementById('add-orders').textContent = totalNewOrders;
+      document.getElementById('net-increase').textContent = '+$' + netIncrease.toLocaleString();
+    }
+
+    ['monthly-sales', 'avg-order', 'cart-rate'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', calculateROI);
+    });
+
+    calculateROI();
+
+    function openROI() {
+      document.getElementById('roi-modal').classList.add('active');
+    }
+
+    function closeROI() {
+      document.getElementById('roi-modal').classList.remove('active');
+    }
+
+    document.getElementById('roi-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'roi-modal') closeROI();
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+<!-- Contact Modal -->
+  <div id="contact-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:2001; align-items:center; justify-content:center;">
+    <div style="background:white; padding:32px; border-radius:20px; max-width:500px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,0.3); position:relative;">
+      <button onclick="closeContact()" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:28px; cursor:pointer; color:#64748b; line-height:1;">×</button>
+      
+      <h2 style="margin-bottom:12px; font-size:24px; font-weight:800; color:#0f172a;">Get in Touch</h2>
+      <p style="margin-bottom:24px; color:#64748b; font-size:15px;">We'd love to hear from you! We'll reply within 24 hours.</p>
+      
+      <form action="https://formspree.io/f/mblglggb" method="POST" id="contact-form">
+        <div style="margin-bottom:20px;">
+          <label style="font-weight:600; display:block; margin-bottom:8px; font-size:14px; color:#0f172a;">Your Name *</label>
+          <input type="text" name="name" required style="width:100%; padding:12px; border:2px solid #f1f5f9; border-radius:12px; font-size:15px; font-family:inherit;">
+        </div>
+        
+        <div style="margin-bottom:20px;">
+          <label style="font-weight:600; display:block; margin-bottom:8px; font-size:14px; color:#0f172a;">Your Email *</label>
+          <input type="email" name="email" required style="width:100%; padding:12px; border:2px solid #f1f5f9; border-radius:12px; font-size:15px; font-family:inherit;">
+        </div>
+        
+        <div style="margin-bottom:20px;">
+          <label style="font-weight:600; display:block; margin-bottom:8px; font-size:14px; color:#0f172a;">Message *</label>
+          <textarea name="message" rows="5" required style="width:100%; padding:12px; border:2px solid #f1f5f9; border-radius:12px; font-size:15px; font-family:inherit; resize:vertical;"></textarea>
+        </div>
+        
+        <div style="display:flex; justify-content:flex-end; gap:12px;">
+          <button type="button" onclick="closeContact()" style="background:#f1f5f9; border:none; padding:12px 24px; border-radius:12px; cursor:pointer; font-weight:700; font-size:15px;">Cancel</button>
+          <button type="submit" style="background:linear-gradient(135deg, #F4A89B 0%, #F5B89F 25%, #A8D5D3 75%, #9CC5C4 100%); color:white; border:none; padding:12px 24px; border-radius:12px; cursor:pointer; font-weight:700; font-size:15px;">Send Message</button>
+        </div>
+      </form>
+      
+      <div id="form-success" style="display:none; margin-top:20px; padding:16px; background:#d1fae5; border-radius:12px; text-align:center;">
+        <p style="color:#065f46; font-weight:600; margin:0;">✓ Message sent! We'll reply within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openContact() {
+      document.getElementById('contact-modal').style.display = 'flex';
+    }
+    
+    function closeContact() {
+      document.getElementById('contact-modal').style.display = 'none';
+    }
+    
+    // Close modal when clicking outside
+    document.getElementById('contact-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'contact-modal') closeContact();
+    });
+    
+    // Handle form submission
+    document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+      const form = e.target;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          document.getElementById('form-success').style.display = 'block';
+          setTimeout(() => {
+            closeContact();
+            document.getElementById('form-success').style.display = 'none';
+          }, 3000);
+        }
+      });
+      e.preventDefault();
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+      .use-case-icon { width:80px; height:80px; font-size:40px; margin-bottom:24px; }
+      .use-case-card h3 { font-size:24px; margin-bottom:16px; }
+      .use-case-card p { font-size:16px; margin-bottom:20px; }
+      .use-case-stats { gap:24px; margin-top:20px; padding-top:20px; }
+      .use-case-stat-number { font-size:28px; }
+      .use-case-stat-label { font-size:13px; }
+      .feature-tabs { margin-top:60px; }
+      .feature-tab-buttons { margin-bottom:32px; }
+      .feature-tab-content.active { gap:32px; }
+      .feature-card { padding:40px; }
+      .feature-icon { width:64px; height:64px; font-size:32px; margin-bottom:20px; }
+      .feature-card h3 { font-size:20px; margin-bottom:12px; }
+      .feature-card p { font-size:15px; }
+      .pricing-grid { gap:32px; margin-top:60px; }
+      .pricing-card { padding:48px; }
+      .pricing-name { font-size:24px; }
+      .pricing-price { font-size:48px; }
+      .pricing-price span { font-size:20px; }
+      .pricing-description { font-size:15px; margin-bottom:32px; padding-bottom:32px; }
+      .pricing-features { margin-bottom:32px; }
+      .pricing-features li { padding:12px 0; font-size:15px; gap:12px; }
+      .pricing-features li svg { width:20px; height:20px; }
+      .testimonials-container { margin-top:60px; }
+      .testimonial-card { padding:40px; }
+      .testimonial-rating { margin-bottom:16px; }
+      .testimonial-rating svg { width:20px; height:20px; }
+      .testimonial-text { font-size:16px; margin-bottom:24px; }
+      .testimonial-avatar { width:48px; height:48px; font-size:18px; }
+      .testimonial-info h4 { font-size:16px; }
+      .testimonial-info p { font-size:14px; }
+      .testimonial-dots { margin-top:24px; }
+      .cta-section { padding:120px 0; }
+      .cta-content h2 { font-size:56px; margin-bottom:24px; }
+      .cta-content p { font-size:20px; margin-bottom:40px; }
+      .collapsible-section { padding:40px; margin-top:60px; }
+      .collapsible-header h3 { font-size:24px; }
+      .collapsible-arrow { font-size:24px; }
+      .collapsible-content p { font-size:16px; }
+      .footer { padding:80px 0 40px; }
+      .footer-content { gap:60px; margin-bottom:60px; }
+      .footer-brand p { font-size:inherit; }
+      .footer-section h4 { font-size:16px; margin-bottom:20px; }
+      .footer-section a { font-size:inherit; margin-bottom:12px; }
+      .footer-bottom { padding-top:40px; font-size:inherit; }
+    }
+
+    /* Mobile Specific */
+    @media (max-width: 768px) {
+      .logo-image { height:36px; }
+      .logo-text { font-size:20px; }
+      .hero { padding:100px 0 40px; }
+      .hero h1 { font-size:30px; }
+      .hero-subtitle { font-size:16px; }
+      .hero-cta { flex-direction:column; width:100%; }
+      .hero-cta .btn { width:100%; text-align:center; }
+      .hero-stats { grid-template-columns:repeat(3,1fr); gap:12px; padding:16px; }
+      .hero-stat-number { font-size:24px; }
+      .hero-stat-label { font-size:11px; }
+      .section { padding:50px 0; }
+      .section-title { font-size:26px; }
+      .section-subtitle { font-size:15px; }
+      .use-case-grid { grid-template-columns:1fr; gap:20px; }
+      .feature-tab-content.active { grid-template-columns:1fr; gap:16px; }
+      .pricing-grid { grid-template-columns:1fr; max-width:400px; margin-left:auto; margin-right:auto; }
+      .pricing-card.featured { transform:scale(1); }
+      .cta-content h2 { font-size:28px; }
+      .cta-content p { font-size:16px; }
+      .footer-content { grid-template-columns:1fr; gap:32px; }
+      .mobile-menu-toggle { display:flex; }
+      .nav-links { display:none; }
+      .sticky-cta { display:flex; }
+      .roi-fab { display:flex; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .use-case-grid { grid-template-columns:1fr; }
+      .feature-tab-content.active { grid-template-columns:repeat(2,1fr); }
+      .pricing-grid { grid-template-columns:1fr; max-width:500px; margin-left:auto; margin-right:auto; }
+      .pricing-card.featured { transform:scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo-container">
+          <img src="numaai-logo.png" alt="NuMeAi Logo" class="logo-image" />
+          <span class="logo-text">NuMeAi</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="https://app.numeai.ai" class="btn btn-primary">Get Started Free</a>
+        </div>
+        <div class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          ✨ Trusted by Sellers on Etsy & Shopify
+        </div>
+        <h1>Train Your AI Salesperson in 5 Minutes. Sell 24/7.</h1>
+        <p class="hero-subtitle">
+          Your AI learns your products, policies, and brand voice—then handles customer questions 24/7 exactly like you would.
+        </p>
+        <div class="hero-cta">
+          <a href="https://app.numeai.ai?wizard=1" class="btn btn-secondary btn-large">Get Started Free</a>
+          <a href="javascript:void(0);" onclick="openROI()" class="btn btn-primary btn-large">Calculate ROI →</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-number">5 min</div>
+            <div class="hero-stat-label">Setup</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">35%</div>
+            <div class="hero-stat-label">Sales Boost*</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">$0</div>
+            <div class="hero-stat-label">To Start</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Built For Both Platforms</div>
+        <h2 class="section-title">Etsy or Shopify? We've Got You.</h2>
+        <p class="section-subtitle">
+          NuMeAi adapts to your business model and customers.
+        </p>
+      </div>
+
+      <div class="use-case-grid">
+        <div class="use-case-card featured">
+          <div class="use-case-icon">🎨</div>
+          <h3>Etsy Sellers</h3>
+          <p>Perfect for handmade goods, vintage items, and crafts. Answers detailed customization questions instantly—while you're creating.</p>
+          <div class="use-case-stats">
+            <div class="use-case-stat">
+              <div class="use-case-stat-number">3-4hrs</div>
+              <div class="use-case-stat-label">Saved Daily</div>
+            </div>
+            <div class="use-case-stat">
+              <div class="use-case-stat-number">90%</div>
+              <div class="use-case-stat-label">Auto-Handled</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="use-case-card">
+          <div class="use-case-icon">🛍️</div>
+          <h3>Shopify Stores</h3>
+          <p>Ideal for businesses scaling fast. Handles high-volume inquiries and guides customers to the right products automatically.</p>
+          <div class="use-case-stats">
+            <div class="use-case-stat">
+              <div class="use-case-stat-number">24/7</div>
+              <div class="use-case-stat-label">Always On</div>
+            </div>
+            <div class="use-case-stat">
+              <div class="use-case-stat-number">Instant</div>
+              <div class="use-case-stat-label">Response</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features with Tabs -->
+  <section class="section section-alt" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">What You Get</div>
+        <h2 class="section-title">Simple Setup. Powerful Results.</h2>
+        <p class="section-subtitle">
+          Professional AI tools built for real entrepreneurs.
+        </p>
+      </div>
+
+      <div class="feature-tabs">
+        <div class="feature-tab-buttons">
+          <button class="feature-tab-btn active" onclick="switchTab(0)">⚡ Core</button>
+          <button class="feature-tab-btn" onclick="switchTab(1)">💬 Customer</button>
+          <button class="feature-tab-btn" onclick="switchTab(2)">🎨 Custom</button>
+        </div>
+
+        <div class="feature-tab-content active" id="tab-0">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>5-Minute Training</h3>
+            <p>Answer 6 questions. AI learns your products, policies, and brand voice. Zero technical skills needed.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Learns YOUR Business</h3>
+            <p>Trained on your products and style. Every answer feels like it came from you.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Continuous Learning</h3>
+            <p>Gets better with every conversation. Understands your business deeper over time.</p>
+          </div>
+        </div>
+
+        <div class="feature-tab-content" id="tab-1">
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>24/7 Customer Chat</h3>
+            <p>Handles questions around the clock. Never miss a sale while sleeping or busy.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🗣️</div>
+            <h3>Voice + Text Support</h3>
+            <p>Customers can type or speak. AI responds naturally to both.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile Optimized</h3>
+            <p>Perfect on phones and tablets. Seamless customer experience.</p>
+          </div>
+        </div>
+
+        <div class="feature-tab-content" id="tab-2">
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Easy Customization</h3>
+            <p>Match brand colors and adjust widget. Update anytime without code.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔗</div>
+            <h3>Works Everywhere</h3>
+            <p>Embed on Shopify, Etsy, Wix, anywhere. Simple code—no developer needed.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Basic Analytics</h3>
+            <p>Track conversations and engagement. Full dashboard coming Q1 2025.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsible Coming Soon -->
+      <div class="collapsible-section" onclick="toggleCollapsible()">
+        <div class="collapsible-header">
+          <h3>🚀 Coming Soon (Q1-Q2 2025)</h3>
+          <span class="collapsible-arrow">▼</span>
+        </div>
+        <div class="collapsible-content" id="coming-soon">
+          <p>
+            <strong>Smart Cart Recovery</strong> (Email/SMS) • <strong>Real-Time Dashboard</strong> (Revenue) • <strong>Multi-Language</strong> (50+ languages) • <strong>SMS/Email Alerts</strong> (VIP notifications)
+          </p>
+          <p style="margin-top:12px; font-style:italic; font-size:13px;">
+            Founding users get these FREE at launch + lifetime priority support
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Simple Pricing</div>
+        <h2 class="section-title">Choose Your Plan</h2>
+        <p class="section-subtitle">
+          No hidden fees. No per-message charges. 30-day money-back guarantee.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">Free</div>
+          <div class="pricing-price">$0<span>/mo</span></div>
+          <div class="pricing-description">Perfect for testing</div>
+          <ul class="pricing-features">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              100 conversations/month
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              1 shop connection
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              5-min AI training
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Email support
+            </li>
+          </ul>
+          <a href="https://app.numeai.ai?wizard=1&plan=free" class="btn btn-secondary" style="width:100%; text-align:center; display:block;">Start Free</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-name">Creator</div>
+          <div class="pricing-price">$19<span>/mo</span></div>
+          <div class="pricing-description">For serious sellers</div>
+          <ul class="pricing-features">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <strong>Unlimited</strong> conversations
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <strong>1 shop</strong> connections
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Advanced AI + voice
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Analytics dashboard
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Custom branding
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Priority support
+            </li>
+          </ul>
+          <a href="https://app.numeai.ai?wizard=1&plan=creator" class="btn btn-primary" style="width:100%; text-align:center; display:block;">Start 14-Day Trial</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-price">$49<span>/mo</span></div>
+          <div class="pricing-description">For multi-shop owners</div>
+          <ul class="pricing-features">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Everything in Creator
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <strong>1 shop</strong> connections
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Advanced training
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              API access 
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              White-label options
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Dedicated manager
+            </li>
+          </ul>
+          <a href="https://app.numeai.ai?wizard=1&plan=pro" class="btn btn-secondary" style="width:100%; text-align:center; display:block;">Start 14-Day Trial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Carousel -->
+  <section class="section section-alt" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Real Results</div>
+        <h2 class="section-title">Built by Creators for Creators</h2>
+        <p class="section-subtitle">
+          Real sellers using NuMeAi to grow their businesses.
+        </p>
+      </div>
+
+      <div class="testimonials-container">
+        <div class="testimonials-track" id="testimonials-track">
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="testimonial-text">"I was spending 3-4 hours daily answering the same questions. Now the AI handles 90% of inquiries perfectly. Game changer for my handbag business."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">G</div>
+              <div class="testimonial-info">
+                <h4>Gabbi</h4>
+                <p><a href="https://gabz.ai" target="_blank" style="color:inherit; text-decoration:none;">Gabz.ai</a> — Curated Handbags</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="testimonial-text">"As an artist creating paintings, sculptures, and fashion, I get constant questions about commissions. NuMeAi answers everything instantly. Like having a full-time assistant."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">P</div>
+              <div class="testimonial-info">
+                <h4>Pepe</h4>
+                <p><a href="https://www.dutchhippies.com" target="_blank" style="color:inherit; text-decoration:none;">Dutchhippies.com</a> — Miami Artist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="testimonial-text">"My art business runs international and I was losing sleep answering questions from different time zones. NuMeAi handles inquiries 24/7. I wake up to sold pieces."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">E</div>
+              <div class="testimonial-info">
+                <h4>Eddy</h4>
+                <p><a href="https://eddybogaert.art" target="_blank" style="color:inherit; text-decoration:none;">eddybogaert.art</a> — International Artist</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <p class="testimonial-text">"Running a professional studio means juggling exhibitions and collector inquiries. NuMeAi handles routine questions so I can focus on creating. It understands my work perfectly."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">G</div>
+              <div class="testimonial-info">
+                <h4>George</h4>
+                <p><a href="https://georgekandelaki.com" target="_blank" style="color:inherit; text-decoration:none;">georgekandelaki.com</a> — Professional Studio</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-dots" id="testimonial-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Start Selling While You Sleep</h2>
+        <p>Set up in 5 minutes. Free plan forever. No credit card required.</p>
+        <a href="https://app.numeai.ai?wizard=1" class="btn btn-secondary btn-large" style="background:#fff; color:#F4A89B; border:none;">
+          Get Started Free
+        </a>
+        <p style="margin-top:16px; font-size:14px; opacity:0.9;">
+          ✓ 5-minute setup  ✓ Free forever  ✓ No card required
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo-container" style="margin-bottom:12px;">
+            <img src="numaai-logo.png" alt="NuMeAi Logo" class="logo-image" />
+            <span class="logo-text" style="color:#fff;">NuMeAi</span>
+          </div>
+          <p>AI assistant for Etsy and Shopify sellers. Built by entrepreneurs who understand the challenges of scaling online.</p>
           <p style="margin-top:12px; font-size:12px;">💳 Secure via Stripe</p>
         </div>
         <div class="footer-section">
