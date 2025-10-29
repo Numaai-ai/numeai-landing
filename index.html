@@ -659,7 +659,7 @@
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              <strong>5 shops</strong>
+              <strong>5 shop connections</strong>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -902,6 +902,53 @@
     <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary">Start Free</a>
   </div>
 
+  <!-- About Modal - FIXED FOR MOBILE -->
+  <div id="about-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:2001; overflow-y:auto; padding:20px;">
+    <div style="background:white; padding:32px 24px; border-radius:20px; max-width:700px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); position:relative; margin:20px auto; min-height:min-content;">
+      <button onclick="closeAbout()" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:28px; cursor:pointer; color:#64748b; line-height:1; z-index:1;">×</button>
+      
+      <h2 style="margin-bottom:20px; font-size:28px; font-weight:900; color:#0f172a; line-height:1.2;">About NuMeAi</h2>
+      
+      <div style="font-size:15px; line-height:1.7; color:#334155;">
+        <p style="margin-bottom:16px; font-weight:600; font-size:17px; color:#0f172a;">We built this because we lived it.</p>
+        
+        <p style="margin-bottom:16px;">NuMeAi started at our kitchen table, watching my fiancée Gabbi pour her heart into her handbag business, <a href="https://gabz.ai" target="_blank" style="color:#F4A89B; text-decoration:none; font-weight:600;">Gabz.ai</a>. She'd spend 3-4 hours every day answering the same questions: "Do you have this in blue?" "What's your return policy?" "Can you customize this?"</p>
+        
+        <p style="margin-bottom:16px;">Meanwhile, she had designs to create, inventory to manage, and a business to grow.</p>
+        
+        <p style="margin-bottom:16px; font-weight:600; color:#0f172a;">The breaking point came on a Tuesday night at 11 PM.</p>
+        
+        <p style="margin-bottom:16px;">Gabbi was exhausted, falling behind on orders, but still glued to her phone answering customer messages. "The big brands have whole teams for this," she said. "How am I supposed to compete?"</p>
+        
+        <p style="margin-bottom:16px;">That's when it hit us: <strong>Small businesses deserve the same tools as corporate giants.</strong></p>
+        
+        <p style="margin-bottom:16px;">Amazon has hundreds of customer service reps. Etsy sellers have... themselves. That's not fair. And with AI, it doesn't have to be that way anymore.</p>
+        
+        <p style="margin-bottom:16px;">We spent the next six months building NuMeAi—not for faceless corporations, but for people like Gabbi. For the jewelry maker in Portland. The vintage seller in Brooklyn. The artist in Miami juggling commissions and DMs at 2 AM.</p>
+        
+        <p style="margin-bottom:16px; font-weight:600; color:#0f172a;">We obsessed over making it simple.</p>
+        
+        <p style="margin-bottom:16px;">No technical degree needed. No $10,000 setup fees. Just answer six questions, and your AI learns your voice, your products, your policies. Five minutes, and you're done.</p>
+        
+        <p style="margin-bottom:16px;">Today, Gabbi's AI handles 90% of her customer questions. She's back to designing. Back to creating. Back to doing what she actually loves. And she's not alone—hundreds of sellers are reclaiming their time and growing their businesses with NuMeAi.</p>
+        
+        <p style="margin-bottom:16px; font-weight:600; color:#0f172a;">This isn't just software to us. It's personal.</p>
+        
+        <p style="margin-bottom:16px;">We know what it's like to compete against giants with one-tenth the resources. We know the exhaustion of choosing between growth and sleep. We know that every small business owner deserves a fighting chance.</p>
+        
+        <p style="margin-bottom:16px;">That's why we built NuMeAi. And that's why we're just getting started.</p>
+        
+        <p style="margin-bottom:24px; font-style:italic; color:#64748b;">— The NuMeAi Team</p>
+        
+        <p style="font-size:13px; color:#64748b; border-top:2px solid #f1f5f9; padding-top:16px;">P.S. We still test every feature on Gabbi's shop first. If it's not good enough for her, it's not good enough for you.</p>
+      </div>
+      
+      <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary" style="width:100%; text-align:center; display:block; margin-top:24px; text-decoration:none;">
+        Start Your Free Trial →
+      </a>
+    </div>
+  </div>
+
   <script>
     // Header scroll
     const header = document.getElementById('header');
@@ -1032,10 +1079,29 @@
       if (e.target.id === 'roi-modal') closeROI();
     });
 
+    // About Modal - FIXED
+    function openAbout() {
+      const modal = document.getElementById('about-modal');
+      modal.style.display = 'block';
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+      // Scroll modal content to top
+      modal.scrollTop = 0;
+    }
+    
+    function closeAbout() {
+      document.getElementById('about-modal').style.display = 'none';
+      // Re-enable body scroll
+      document.body.style.overflow = '';
+    }
+    
+    // Close modal when clicking outside content
+    document.getElementById('about-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'about-modal') closeAbout();
+    });
+
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-<div id="about-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:2001; align-items:center; justify-content:center; overflow-y:auto; padding:20px;"> <div style="background:white; padding:48px 40px; border-radius:20px; max-width:700px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); position:relative; margin:20px auto;"> <button onclick="closeAbout()" style="position:absolute; top:20px; right:20px; background:none; border:none; font-size:28px; cursor:pointer; color:#64748b; line-height:1;">×</button> <h2 style="margin-bottom:24px; font-size:32px; font-weight:900; color:#0f172a; line-height:1.2;">About NuMeAi</h2> <div style="font-size:16px; line-height:1.8; color:#334155;"> <p style="margin-bottom:20px; font-weight:600; font-size:18px; color:#0f172a;">We built this because we lived it.</p> <p style="margin-bottom:20px;">NuMeAi started at our kitchen table, watching my fiancée Gabbi pour her heart into her handbag business, <a href="https://gabz.ai" target="_blank" style="color:#F4A89B; text-decoration:none; font-weight:600;">Gabz.ai</a>. She'd spend 3-4 hours every day answering the same questions: "Do you have this in blue?" "What's your return policy?" "Can you customize this?"</p> <p style="margin-bottom:20px;">Meanwhile, she had designs to create, inventory to manage, and a business to grow.</p> <p style="margin-bottom:20px; font-weight:600; color:#0f172a;">The breaking point came on a Tuesday night at 11 PM.</p> <p style="margin-bottom:20px;">Gabbi was exhausted, falling behind on orders, but still glued to her phone answering customer messages. "The big brands have whole teams for this," she said. "How am I supposed to compete?"</p> <p style="margin-bottom:20px;">That's when it hit us: <strong>Small businesses deserve the same tools as corporate giants.</strong></p> <p style="margin-bottom:20px;">Amazon has hundreds of customer service reps. Etsy sellers have... themselves. That's not fair. And with AI, it doesn't have to be that way anymore.</p> <p style="margin-bottom:20px;">We spent the next six months building NuMeAi—not for faceless corporations, but for people like Gabbi. For the jewelry maker in Portland. The vintage seller in Brooklyn. The artist in Miami juggling commissions and DMs at 2 AM.</p> <p style="margin-bottom:20px; font-weight:600; color:#0f172a;">We obsessed over making it simple.</p> <p style="margin-bottom:20px;">No technical degree needed. No $10,000 setup fees. Just answer six questions, and your AI learns your voice, your products, your policies. Five minutes, and you're done.</p> <p style="margin-bottom:20px;">Today, Gabbi's AI handles 90% of her customer questions. She's back to designing. Back to creating. Back to doing what she actually loves. And she's not alone—hundreds of sellers are reclaiming their time and growing their businesses with NuMeAi.</p> <p style="margin-bottom:20px; font-weight:600; color:#0f172a;">This isn't just software to us. It's personal.</p> <p style="margin-bottom:20px;">We know what it's like to compete against giants with one-tenth the resources. We know the exhaustion of choosing between growth and sleep. We know that every small business owner deserves a fighting chance.</p> <p style="margin-bottom:20px;">That's why we built NuMeAi. And that's why we're just getting started.</p> <p style="margin-bottom:32px; font-style:italic; color:#64748b;">— The NuMeAi Team</p> <p style="font-size:14px; color:#64748b; border-top:2px solid #f1f5f9; padding-top:20px;">P.S. We still test every feature on Gabbi's shop first. If it's not good enough for her, it's not good enough for you.</p> </div> <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary" style="width:100%; text-align:center; display:block; margin-top:32px; text-decoration:none;"> Start Your Free Trial → </a> </div> </div> <script> function openAbout() { document.getElementById('about-modal').style.display = 'flex'; } function closeAbout() { document.getElementById('about-modal').style.display = 'none'; } // Close modal when clicking outside document.getElementById('about-modal')?.addEventListener('click', (e) => { if (e.target.id === 'about-modal') closeAbout(); }); </script>
+
 </body>
 </html>
-
-
