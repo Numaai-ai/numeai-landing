@@ -252,7 +252,7 @@
     .collapsible-arrow.open { transform:rotate(180deg); }
     .collapsible-content { max-height:0; overflow:hidden; transition:max-height .5s ease; }
     .collapsible-content.open { max-height:500px; }
-    .collapsible-content p { font-size:15px; color:var(--gray); line-height:1.6; margin-top:16px; }
+    .collapsible-content p { font-size:15px; color:#64748b; line-height:1.6; margin-top:16px; }
 
     /* Desktop Adjustments */
     @media (min-width: 1025px) {
@@ -997,8 +997,12 @@
     </div>
   </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Header scroll
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Header scroll & sticky CTA
     const header = document.getElementById('header');
     const stickyCTA = document.getElementById('sticky-cta');
     
@@ -1117,10 +1121,12 @@
 
     function openROI() {
       document.getElementById('roi-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
 
     function closeROI() {
       document.getElementById('roi-modal').classList.remove('active');
+      document.body.style.overflow = '';
     }
 
     document.getElementById('roi-modal')?.addEventListener('click', (e) => {
@@ -1136,6 +1142,33 @@
     }
     
     function closeAbout() {
-      document.getElementById('about-modal').style.display = 'none';
-      document.body.style.overflow =
+      const modal = document.getElementById('about-modal');
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
 
+    // Team Modal
+    function openTeam() {
+      const modal = document.getElementById('team-modal');
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      modal.scrollTop = 0;
+    }
+
+    function closeTeam() {
+      const modal = document.getElementById('team-modal');
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Close modals when clicking outside content
+    document.getElementById('team-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'team-modal') closeTeam();
+    });
+
+    document.getElementById('about-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'about-modal') closeAbout();
+    });
+  </script>
+</body>
+</html>
