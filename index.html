@@ -525,7 +525,7 @@
           <div class="feature-card">
             <div class="feature-icon">📊</div>
             <h3>Basic Analytics</h3>
-            <p>Track conversations and engagement. Full dashboard coming Q1 2025.</p>
+            <p>Track conversations and engagement. Full dashboard coming Q1 2026.</p>
           </div>
         </div>
       </div>
@@ -533,7 +533,7 @@
       <!-- Collapsible Coming Soon -->
       <div class="collapsible-section" onclick="toggleCollapsible()">
         <div class="collapsible-header">
-          <h3>🚀 Coming Soon (Q1-Q2 2025)</h3>
+          <h3>🚀 Coming Soon (Q1-Q2 2026)</h3>
           <span class="collapsible-arrow">▼</span>
         </div>
         <div class="collapsible-content" id="coming-soon">
@@ -800,7 +800,7 @@
             <span class="logo-text" style="color:#fff;">NuMeAi</span>
           </div>
           <p>AI assistant for Etsy and Shopify sellers. Built by entrepreneurs who understand the challenges of scaling online.</p>
-          <p style="margin-top:12px; font-size:12px;">Product Inquiries: <a href="mailto:hi@numaai.ai" style="color:var(--primary-coral); text-decoration:none;">hi@numaai.ai</a> | 💳 Secure via Stripe</p>
+          <p style="margin-top:12px; font-size:12px;">Product Inquiries: <a href="/cdn-cgi/l/email-protection#2e46476e405b434f4f47004f47" style="color:var(--primary-coral); text-decoration:none;"><span class="__cf_email__" data-cfemail="cda5a48da3b8a0acaca4e3aca4">[email&#160;protected]</span></a> | 💳 Secure via Stripe</p>
         </div>
         <div class="footer-section">
           <h4>Product</h4>
@@ -812,7 +812,8 @@
         <div class="footer-section">
           <h4>Company</h4>
           <a href="javascript:void(0);" onclick="openAbout()">About</a>
-          <a href="mailto:hi@numaai.ai">Contact</a>
+          <a href="javascript:void(0);" onclick="openTeam()">Team</a>
+          <a href="/cdn-cgi/l/email-protection#c1a9a881afb4aca0a0a8efa0a8">Contact</a>
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
         </div>
@@ -902,7 +903,7 @@
     <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary">Start Free</a>
   </div>
 
-  <!-- About Modal - FIXED FOR MOBILE -->
+  <!-- About Modal -->
   <div id="about-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:2001; overflow-y:auto; padding:20px;">
     <div style="background:white; padding:32px 24px; border-radius:20px; max-width:700px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); position:relative; margin:20px auto; min-height:min-content;">
       <button onclick="closeAbout()" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:28px; cursor:pointer; color:#64748b; line-height:1; z-index:1;">×</button>
@@ -949,7 +950,54 @@
     </div>
   </div>
 
-  <script>
+  <!-- Team Modal -->
+  <div id="team-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); z-index:2001; overflow-y:auto; padding:20px;">
+    <div style="background:white; padding:32px 24px; border-radius:20px; max-width:800px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.3); position:relative; margin:20px auto; min-height:min-content;">
+      <button onclick="closeTeam()" style="position:absolute; top:16px; right:16px; background:none; border:none; font-size:28px; cursor:pointer; color:#64748b; line-height:1; z-index:1;">×</button>
+      
+      <h2 style="margin-bottom:24px; font-size:28px; font-weight:900; color:#0f172a; line-height:1.2;">Meet the Team</h2>
+      
+      <!-- Gaurav -->
+      <div style="margin-bottom:32px; padding:24px; background:linear-gradient(135deg, rgba(244,168,155,.05) 0%, rgba(156,197,196,.05) 100%); border-radius:16px; border:2px solid rgba(244,168,155,.2);">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+          <div style="width:64px; height:64px; border-radius:50%; background:var(--gradient); display:flex; align-items:center; justify-content:center; color:white; font-weight:800; font-size:24px;">G</div>
+          <div>
+            <h3 style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:4px;">Gary Malhotra</h3>
+            <p style="font-size:14px; color:#64748b; font-weight:600;">Co-Founder & Chief Visionary</p>
+          </div>
+        </div>
+        <p style="font-size:15px; line-height:1.7; color:#334155;">
+          Gaurav is a seasoned entrepreneur with a passion for unlocking human potential through intelligent systems. At NuMeAi.ai, he leads the strategic vision—blending deeply-human design with advanced AI to create a platform that empowers people and businesses to think bigger. He believes the future of technology isn't about replacing humans—it's about amplifying what only humans can bring: imagination, meaning, connection.
+        </p>
+      </div>
+
+      <!-- Soren -->
+      <div style="padding:24px; background:linear-gradient(135deg, rgba(244,168,155,.05) 0%, rgba(156,197,196,.05) 100%); border-radius:16px; border:2px solid rgba(244,168,155,.2);">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+          <div style="width:64px; height:64px; border-radius:50%; background:var(--gradient); display:flex; align-items:center; justify-content:center; color:white; font-weight:800; font-size:24px;">S</div>
+          <div>
+            <h3 style="font-size:20px; font-weight:800; color:#0f172a; margin-bottom:4px;">Soren Malhotra</h3>
+            <p style="font-size:14px; color:#64748b; font-weight:600;">Co-Founder</p>
+          </div>
+        </div>
+        <p style="font-size:15px; line-height:1.7; color:#334155; margin-bottom:12px;">
+          Soren is a senior at Avenues: The World School with academic interests in philosophy, business, and the role of ethics in emerging technologies. As Co-Founder of NuMeAi.ai — a human-first AI operating system designed to help small businesses scale — Soren applies his studies directly to real-world product development and entrepreneurship.
+        </p>
+        <p style="font-size:15px; line-height:1.7; color:#334155; margin-bottom:12px;">
+          His contributions include developing early marketing strategies, improving user onboarding flows, organizing customer feedback, and shaping how the platform communicates with its audience. Working alongside a startup team has allowed Soren to build leadership experience, analytical skills, and a strong understanding of how technology can meaningfully support human decision-making.
+        </p>
+        <p style="font-size:15px; line-height:1.7; color:#334155;">
+          Soren plans to continue studying philosophy and business at the university level, with a focus on innovation, ethics, and the societal impact of AI.
+        </p>
+      </div>
+
+      <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary" style="width:100%; text-align:center; display:block; margin-top:32px; text-decoration:none;">
+        Join Our Mission →
+      </a>
+    </div>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Header scroll
     const header = document.getElementById('header');
     const stickyCTA = document.getElementById('sticky-cta');
@@ -1079,29 +1127,15 @@
       if (e.target.id === 'roi-modal') closeROI();
     });
 
-    // About Modal - FIXED
+    // About Modal
     function openAbout() {
       const modal = document.getElementById('about-modal');
       modal.style.display = 'block';
-      // Prevent body scroll when modal is open
       document.body.style.overflow = 'hidden';
-      // Scroll modal content to top
       modal.scrollTop = 0;
     }
     
     function closeAbout() {
       document.getElementById('about-modal').style.display = 'none';
-      // Re-enable body scroll
-      document.body.style.overflow = '';
-    }
-    
-    // Close modal when clicking outside content
-    document.getElementById('about-modal')?.addEventListener('click', (e) => {
-      if (e.target.id === 'about-modal') closeAbout();
-    });
+      document.body.style.overflow =
 
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-</body>
-</html>
