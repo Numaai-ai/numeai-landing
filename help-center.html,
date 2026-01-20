@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NuMeAi Help Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --primary-coral:#F4A89B;
+      --primary-teal:#9CC5C4;
+      --gray:#64748b;
+      --dark:#0f172a;
+      --light:#f1f5f9;
+      --gradient: linear-gradient(135deg, #F4A89B 0%, #F5B89F 25%, #A8D5D3 75%, #9CC5C4 100%);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--dark);background:#fff}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 20px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+    .brand img{height:34px;width:auto}
+    .brand b{font-weight:900;letter-spacing:-.02em;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;font-weight:800;text-decoration:none}
+    .btn-primary{background:var(--gradient);color:#fff}
+    .hero{background:linear-gradient(135deg, rgba(244,168,155,.10), rgba(156,197,196,.10));border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:22px;margin-bottom:18px}
+    h1{font-size:30px;line-height:1.1;margin-bottom:8px}
+    p{color:var(--gray);line-height:1.6}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+    .card{border:1px solid rgba(0,0,0,.08);border-radius:16px;overflow:hidden}
+    .q{width:100%;text-align:left;background:#fff;border:0;padding:16px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .q span{font-weight:900}
+    .q small{color:var(--primary-coral);font-weight:900}
+    .a{display:none;padding:0 16px 16px 16px;color:var(--gray)}
+    .a code{background:var(--light);padding:2px 6px;border-radius:8px}
+    .open .a{display:block}
+    .open .q small{transform:rotate(180deg)}
+    pre{background:var(--light);padding:14px;border-radius:14px;overflow:auto;margin-top:10px}
+    .section-title{margin-top:24px;font-size:18px;font-weight:900}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <a class="brand" href="/">
+        <img src="numaai-logo.png" alt="NuMeAi Logo" />
+        <b>NuMeAi</b>
+      </a>
+      <a class="btn btn-primary" href="https://app.numeai.ai?wizard=1">Get Started Free</a>
+    </div>
+
+    <div class="hero">
+      <h1>Help Center</h1>
+      <p>Quick answers for sellers who want NuMeAi running fast — on Shopify, Etsy, WordPress, WooCommerce, and more.</p>
+    </div>
+
+    <div class="section-title">Setup & Installation</div>
+    <div class="grid">
+
+      <div class="card">
+        <button class="q" type="button">
+          <span>Will WordPress/WooCommerce show the same floating widget icon as Gabz.ai?</span>
+          <small>▼</small>
+        </button>
+        <div class="a">
+          Yes — if you install the NuMeAi widget script on your WordPress/WooCommerce site, you’ll get the same floating icon and chat experience (like Gabz.ai). The share link opens the chat page, but the floating icon only appears when the widget script is embedded on your site.
+        </div>
+      </div>
+
+      <div class="card">
+        <button class="q" type="button">
+          <span>How do I install NuMeAi on WordPress / WooCommerce?</span>
+          <small>▼</small>
+        </button>
+        <div class="a">
+          Recommended: install <strong>WPCode (Insert Headers & Footers)</strong>, then paste your widget snippet into the <strong>Footer</strong> and apply it site-wide.
+          <pre><code>&lt;script&gt;
+(function () {
+  window.NUMEAI_WIDGET_SLUG     = "YOUR-SLUG";
+  window.NUMEAI_WIDGET_POSITION = "bottom-right";
+  window.NUMEAI_WIDGET_BASE_URL = "https://app.numeai.ai";
+  window.NUMEAI_WIDGET_ZINDEX   = 9999;
+  window.NUMEAI_WIDGET_SIZE     = 132;
+
+  var s = document.createElement('script');
+  s.src = "https://app.numeai.ai/numeai-widget.js";
+  s.defer = true;
+  document.body.appendChild(s);
+})();
+&lt;/script&gt;</code></pre>
+          Tip: if you use caching/minify plugins, exclude <code>https://app.numeai.ai/numeai-widget.js</code> from “Delay JS” if needed.
+        </div>
+      </div>
+
+      <div class="card">
+        <button class="q" type="button">
+          <span>Can I change the widget position or size?</span>
+          <small>▼</small>
+        </button>
+        <div class="a">
+          Yes. Use <code>window.NUMEAI_WIDGET_POSITION</code> (ex: <code>bottom-right</code>) and <code>window.NUMEAI_WIDGET_SIZE</code> (ex: <code>132</code>). If your theme overlays it, increase <code>window.NUMEAI_WIDGET_ZINDEX</code>.
+        </div>
+      </div>
+
+      <div class="card">
+        <button class="q" type="button">
+          <span>Does NuMeAi work on platforms besides Shopify and Etsy?</span>
+          <small>▼</small>
+        </button>
+        <div class="a">
+          Yes. If your site can add a script snippet (WordPress, WooCommerce, Wix, Squarespace, Webflow, custom HTML), you can embed the widget.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-title">Product & Support</div>
+    <div class="grid">
+
+      <div class="card">
+        <button class="q" type="button">
+          <span>How long does it take to set up?</span>
+          <small>▼</small>
+        </button>
+        <div class="a">
+          Most sellers are live in about 5 minutes. You answer a few questions and NuMeAi learns your products and policies.
+        </div>
+      </div>
+
+      <div class="card">
+        <button class="q" type="button">
+          <span>What does NuMeAi actually do for my store?</span>
+          <small>▼</small>
+        </button>
+        <div class="a">
+          NuMeAi is an AI sales assistant that sits on your store and answers customer questions instantly — so you don’t have to. It helps convert “maybe” buyers and works while you sleep.
+        </div>
+      </div>
+
+      <div class="card">
+        <button class="q" type="button">
+          <span>How do I contact support?</span>
+          <small>▼</small>
+        </button>
+        <div class="a">
+          Use the Contact link on the website or reach out through the NuMeAi app. If you send your store URL + your widget slug, we can diagnose issues quickly.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.card .q').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        btn.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
