@@ -448,6 +448,55 @@
       .final-cta { padding: 74px 0; }
       .final-cta h2 { font-size: 30px; }
     }
+  
+    /* MODALS (About / Team) */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(15,23,42,0.72);
+      display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      width: 100%; max-width: 860px;
+      background: #fff; border-radius: var(--radius-lg);
+      border: 2px solid var(--lighter);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .modal-head {
+      padding: 18px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: var(--lighter);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .modal-head h3 { font-family: var(--font-display); font-size: 18px; font-weight: 900; letter-spacing: -0.01em; }
+    .modal-close {
+      border: none; background: #fff; cursor: pointer;
+      width: 40px; height: 40px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: var(--dark);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .modal-close:hover { border-color: rgba(0,0,0,0.18); }
+    .modal-body { padding: 22px 20px; }
+    .modal-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .person-card {
+      background:#fff; border:2px solid var(--lighter); border-radius: var(--radius);
+      padding: 16px;
+    }
+    .person-top { display:flex; align-items:center; gap: 12px; margin-bottom: 10px; }
+    .person-avatar {
+      width:46px; height:46px; border-radius: 50%;
+      background: var(--gradient);
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; font-weight:900;
+    }
+    .person-name { font-weight: 900; }
+    .person-role { font-size: 12px; color: var(--gray); font-weight: 800; }
+    .person-bio { color: var(--gray); font-weight: 600; line-height: 1.7; font-size: 13.5px; }
+    @media (max-width: 900px) { .modal-grid { grid-template-columns: 1fr; } }
+
   </style>
 </head>
 
@@ -496,7 +545,7 @@
 
           <div class="hero-cta">
             <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary btn-lg">Start Free — 90 Day Trial</a>
-            <a href="javascript:void(0);" onclick="openNuMeAiDemo()" class="btn btn-ghost btn-lg">💬 Try Live Demo</a>
+            <a href="https://staging.numeai.ai/?s=gabz-1ea849&widget=1&noHero=1&starters=1" target="_blank" class="btn btn-ghost btn-lg">💬 Try Live Demo ↗</a>
           </div>
 
           <div class="hero-proof">
@@ -655,83 +704,6 @@
       </div>
     </div>
   </section>
-
-  
-  <!-- ===== STORY ===== -->
-  <section id="story">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-eyebrow">Our Story</div>
-        <h2 class="section-title">Built from a real store problem — not a boardroom.</h2>
-        <p class="section-desc">
-          NuMeAi started by testing on a live shop (Gabz.ai). We watched how much time independent sellers lose to repetitive DMs —
-          then built a simple AI storekeeper that learns your products and helps you sell 24/7.
-        </p>
-      </div>
-
-      <div style="max-width: 920px; margin: 0 auto; background: #fff; border: 2px solid var(--lighter); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-md);">
-        <p style="font-weight:800; color: var(--dark); margin-bottom: 12px;">We built this because we lived it.</p>
-        <p style="color: var(--gray); margin-bottom: 12px;">
-          NuMeAi started at our kitchen table — watching Gabbi pour her heart into her handbag business and spend hours every day answering the same questions.
-          Meanwhile, she had designs to create, inventory to manage, and a business to grow.
-        </p>
-        <p style="color: var(--gray); margin-bottom: 12px;">
-          We realized small businesses deserve the same sales + support tools as the giants — without paying for a whole team.
-          So we built NuMeAi to be simple: connect your store, answer a few questions, paste one snippet, and your AI starts helping immediately.
-        </p>
-        <p style="color: var(--gray); margin-bottom: 0;">
-          We’re shipping improvements weekly with real customer feedback. If it’s not good enough for our own stores, it’s not good enough for yours.
-        </p>
-
-        <div style="margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="https://staging.numeai.ai/?s=gabz-1ea849&widget=1&noHero=1&starters=1" target="_blank" class="btn btn-secondary">See it in action ↗</a>
-          <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary">Start Free</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TEAM ===== -->
-  <section id="team" style="background: var(--light);">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-eyebrow">Team</div>
-        <h2 class="section-title">Built by a real team — with real skin in the game.</h2>
-        <p class="section-desc">We build, test, and iterate with real stores and real customers.</p>
-      </div>
-
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 980px; margin: 0 auto;">
-        <div style="background:#fff; border:2px solid var(--lighter); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-md);">
-          <div style="display:flex; align-items:center; gap:14px; margin-bottom: 12px;">
-            <div style="width:56px; height:56px; border-radius: 50%; background: var(--gradient); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:900; font-size: 20px;">G</div>
-            <div>
-              <div style="font-weight:900; font-size: 18px;">Gary (Gaurav) Malhotra</div>
-              <div style="color: var(--gray); font-weight:700; font-size: 13px;">Founder</div>
-            </div>
-          </div>
-          <p style="color: var(--gray); font-weight:600; line-height:1.7;">
-            Entrepreneur focused on building a human-first AI storekeeper that helps independent sellers compete with big brands —
-            by automating ad creation, product guidance, and customer support.
-          </p>
-        </div>
-
-        <div style="background:#fff; border:2px solid var(--lighter); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-md);">
-          <div style="display:flex; align-items:center; gap:14px; margin-bottom: 12px;">
-            <div style="width:56px; height:56px; border-radius: 50%; background: var(--gradient); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:900; font-size: 20px;">S</div>
-            <div>
-              <div style="font-weight:900; font-size: 18px;">Soren Malhotra</div>
-              <div style="color: var(--gray); font-weight:700; font-size: 13px;">Co-Founder</div>
-            </div>
-          </div>
-          <p style="color: var(--gray); font-weight:600; line-height:1.7;">
-            Works on onboarding clarity, customer feedback loops, and messaging that makes AI simple for real business owners.
-            Interested in the ethics and real-world impact of emerging tech.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
 <!-- ===== PRICING ===== -->
   <section id="pricing" class="pricing">
     <div class="container">
@@ -898,14 +870,98 @@
         <p>Start free for 90 days. If it doesn’t drive revenue or save you time, it costs you nothing.</p>
         <div class="final-cta-btns">
           <a href="https://app.numeai.ai?wizard=1" class="btn btn-lg" style="background:#fff; color:var(--dark); font-weight:900;">Start Free</a>
-          <a href="javascript:void(0);" onclick="openNuMeAiDemo()" class="btn btn-ghost btn-lg">Try Live Demo</a>
+          <a href="https://staging.numeai.ai/?s=gabz-1ea849&widget=1&noHero=1&starters=1" target="_blank" class="btn btn-ghost btn-lg">Try Live Demo ↗</a>
         </div>
         <div class="final-cta-sub">✓ 5-minute setup · ✓ No credit card · ✓ Works anywhere</div>
       </div>
     </div>
   </section>
 
-    <!-- ===== FOOTER ===== -->
+  
+  <!-- ===== MODALS ===== -->
+  <div class="modal-overlay" id="modal-about" role="dialog" aria-modal="true" aria-label="About NuMeAi">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>Our Story</h3>
+        <button class="modal-close" onclick="closeModal('about')" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-weight:900; margin-bottom:10px;">Built from a real store problem — not a boardroom.</p>
+        <p style="color: var(--gray); font-weight:600; line-height:1.8; margin-bottom:10px;">
+          NuMeAi started by testing on a live shop (Gabz.ai). We watched how much time independent sellers lose to repetitive DMs —
+          then built a simple AI storekeeper that learns your products and helps you sell 24/7.
+        </p>
+        <p style="color: var(--gray); font-weight:600; line-height:1.8; margin-bottom:10px;">
+          We built this because we lived it: hours answering “Is it in stock?”, “How fast is shipping?”, “What should I buy?” —
+          while trying to design, ship orders, and grow.
+        </p>
+        <p style="color: var(--gray); font-weight:600; line-height:1.8; margin-bottom:0;">
+          We ship improvements weekly with real customer feedback. If it’s not good enough for our own stores, it’s not good enough for yours.
+        </p>
+
+        <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="https://staging.numeai.ai/?s=gabz-1ea849&widget=1&noHero=1&starters=1" target="_blank" class="btn btn-secondary">See the demo ↗</a>
+          <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary">Start Free</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modal-team" role="dialog" aria-modal="true" aria-label="NuMeAi Team">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3>Team</h3>
+        <button class="modal-close" onclick="closeModal('team')" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-grid">
+          <div class="person-card">
+            <div class="person-top">
+              <div class="person-avatar">G</div>
+              <div>
+                <div class="person-name">Gary (Gaurav) Malhotra</div>
+                <div class="person-role">Founder</div>
+              </div>
+            </div>
+            <div class="person-bio">
+              Building a human-first AI storekeeper that helps independent sellers compete with big brands —
+              by automating ad creation, product guidance, and customer support.
+            </div>
+          </div>
+
+          <div class="person-card">
+            <div class="person-top">
+              <div class="person-avatar">S</div>
+              <div>
+                <div class="person-name">Soren Malhotra</div>
+                <div class="person-role">Co-Founder</div>
+              </div>
+            </div>
+            <div class="person-bio">
+              Focuses on onboarding clarity, customer feedback loops, and messaging that makes AI simple for real business owners.
+            </div>
+          </div>
+
+          <div class="person-card">
+            <div class="person-top">
+              <div class="person-avatar">M</div>
+              <div>
+                <div class="person-name">Michael Falb</div>
+                <div class="person-role">COO</div>
+              </div>
+            </div>
+            <div class="person-bio">
+              Operations and execution partner focused on scaling onboarding, customer success, and delivery —
+              so sellers get value fast and we ship improvements weekly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -931,8 +987,8 @@
 
         <div class="footer-section">
           <h4>Company</h4>
-          <a href="#story">About</a>
-          <a href="#team">Team</a>
+          <a href="javascript:void(0);" onclick="openModal('about')">About</a>
+          <a href="javascript:void(0);" onclick="openModal('team')">Team</a>
           <a href="mailto:hi@numeai.ai">Contact</a>
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
@@ -941,7 +997,7 @@
         <div class="footer-section">
           <h4>Resources</h4>
           <a href="help-center.html">Help Center</a>
-          <a href="#demo">See Live Demo</a>
+          <a href="https://staging.numeai.ai/?s=gabz-1ea849&widget=1&noHero=1&starters=1" target="_blank">See Live Demo ↗</a>
           <a href="https://gabz.ai" target="_blank">Demo Store (Gabz.ai)</a>
         </div>
       </div>
@@ -960,16 +1016,7 @@
     </div>
     <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary btn-sm">Get Started</a>
   </div>
-
-  <!-- NuMeAi Widget Embed -->
-  <script>
-    // Live demo widget (this is what powers the on-page demo chat)
-    window.NUMEAI_WIDGET_BASE_URL = "https://staging.numeai.ai";
-    window.NUMEAI_WIDGET_SLUG = "gabz-1ea849";
-  </script>
-  <script async src="https://staging.numeai.ai/numeai-widget.js"></script>
-
-  <script>
+<script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -1022,13 +1069,7 @@
         answer.style.maxHeight = answer.scrollHeight + 'px';
       }
     }
-
-    // Open NuMeAi Demo Widget
-    function openNuMeAiDemo() {
-      const widgetBtn = document.querySelector('.numeai-widget-button, .numeai-toggle-btn, [id*="numeai"], [class*="numeai"]');
-      if (widgetBtn) {
-        widgetBtn.click();
-      } else {
+else {
         const demoSection = document.getElementById('demo');
         if (demoSection) demoSection.scrollIntoView({ behavior: 'smooth' });
         window.dispatchEvent(new CustomEvent('numeai:open'));
@@ -1038,6 +1079,35 @@
         }, 650);
       }
     }
-  </script>
+  
+    // Modals (About / Team)
+    function openModal(which) {
+      const el = document.getElementById('modal-' + which);
+      if (!el) return;
+      el.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(which) {
+      const el = document.getElementById('modal-' + which);
+      if (!el) return;
+      el.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    ['about','team'].forEach(k => {
+      const el = document.getElementById('modal-' + k);
+      if (el) {
+        el.addEventListener('click', (e) => {
+          if (e.target === el) closeModal(k);
+        });
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal('about');
+        closeModal('team');
+      }
+    });
+
+</script>
 </body>
 </html>
