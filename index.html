@@ -1016,26 +1016,33 @@
     </div>
     <a href="https://app.numeai.ai?wizard=1" class="btn btn-primary btn-sm">Get Started</a>
   </div>
-<script>
+
+  <script>
     // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function() {
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
 
     // Header scroll + mobile sticky CTA
-    const header = document.getElementById('header');
-    const stickyCTA = document.getElementById('sticky-cta');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 10);
-      if (window.innerWidth <= 768) {
-        stickyCTA.classList.toggle('visible', window.scrollY > 520);
-      }
-    });
+    (function() {
+      var header = document.getElementById('header');
+      var stickyCTA = document.getElementById('sticky-cta');
+      window.addEventListener('scroll', function() {
+        if (header) header.classList.toggle('scrolled', window.scrollY > 10);
+        if (stickyCTA && window.innerWidth <= 768) {
+          stickyCTA.classList.toggle('visible', window.scrollY > 520);
+        }
+      });
+    })();
 
     // Mobile menu
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    if (menuToggle) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = navLinks.style.display === 'flex';
+    (function() {
+      var menuToggle = document.getElementById('menu-toggle');
+      var navLinks = document.getElementById('nav-links');
+      if (!menuToggle || !navLinks) return;
+      menuToggle.addEventListener('click', function() {
+        var isOpen = navLinks.style.display === 'flex';
         navLinks.style.display = isOpen ? 'none' : 'flex';
         if (!isOpen) {
           navLinks.style.flexDirection = 'column';
@@ -1051,63 +1058,62 @@
           navLinks.style.zIndex = '100';
         }
       });
-    }
+    })();
 
     // FAQ accordion
     function toggleFaq(btn) {
-      const item = btn.parentElement;
-      const answer = item.querySelector('.faq-answer');
-      const isOpen = item.classList.contains('open');
+      var item = btn.parentElement;
+      var answer = item.querySelector('.faq-answer');
+      var isOpen = item.classList.contains('open');
 
-      document.querySelectorAll('.faq-item').forEach(i => {
+      document.querySelectorAll('.faq-item').forEach(function(i) {
         i.classList.remove('open');
-        i.querySelector('.faq-answer').style.maxHeight = null;
+        var a = i.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = null;
       });
 
       if (!isOpen) {
         item.classList.add('open');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
+        if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
       }
     }
-else {
-        const demoSection = document.getElementById('demo');
-        if (demoSection) demoSection.scrollIntoView({ behavior: 'smooth' });
-        window.dispatchEvent(new CustomEvent('numeai:open'));
-        setTimeout(() => {
-          const btn = document.querySelector('.numeai-widget-button, .numeai-toggle-btn, [id*="numeai"], [class*="numeai"]');
-          if (btn) btn.click();
-        }, 650);
-      }
-    }
-  
+
     // Modals (About / Team)
     function openModal(which) {
-      const el = document.getElementById('modal-' + which);
+      var el = document.getElementById('modal-' + which);
       if (!el) return;
       el.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
     function closeModal(which) {
-      const el = document.getElementById('modal-' + which);
+      var el = document.getElementById('modal-' + which);
       if (!el) return;
       el.classList.remove('open');
       document.body.style.overflow = '';
     }
-    ['about','team'].forEach(k => {
-      const el = document.getElementById('modal-' + k);
-      if (el) {
-        el.addEventListener('click', (e) => {
-          if (e.target === el) closeModal(k);
-        });
-      }
+
+    // Close modal when clicking overlay
+    ['about','team'].forEach(function(k) {
+      var el = document.getElementById('modal-' + k);
+      if (!el) return;
+      el.addEventListener('click', function(e) {
+        if (e.target === el) closeModal(k);
+      });
     });
-    document.addEventListener('keydown', (e) => {
+
+    // ESC to close
+    document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeModal('about');
         closeModal('team');
       }
     });
 
-</script>
+    // Expose functions for inline onclick
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+    window.toggleFaq = toggleFaq;
+  </script>
 </body>
+
 </html>
