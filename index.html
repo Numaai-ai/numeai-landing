@@ -370,6 +370,81 @@
     .demo-body p { font-size: 16px; color: var(--gray); line-height: 1.7; }
     .demo-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
 
+    /* VIDEO DEMO */
+    .video-demo {
+      background:
+        radial-gradient(circle at top left, rgba(244,168,155,0.08) 0%, transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+    .video-wrap { max-width: 980px; margin: 0 auto; }
+    .video-card {
+      background: var(--dark);
+      border-radius: calc(var(--radius-lg) + 2px);
+      border: 1px solid rgba(15,23,42,0.08);
+      box-shadow: 0 28px 70px rgba(15,23,42,0.16);
+      overflow: hidden;
+    }
+    .video-browser-bar {
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .video-browser-bar .demo-url-bar {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.76);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #020617;
+    }
+    .video-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .video-footer {
+      padding: 22px 24px;
+      background: linear-gradient(180deg, rgba(15,23,42,0.96) 0%, rgba(15,23,42,1) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .video-footer-copy {
+      max-width: 620px;
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+    .video-footer-copy strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+    .video-footer .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      border-color: rgba(255,255,255,0.16);
+    }
+    .video-footer .btn-secondary:hover {
+      color: #fff;
+      border-color: rgba(244,168,155,0.42);
+      background: rgba(255,255,255,0.08);
+    }
+
     /* PRICING */
     .pricing { background: var(--light); }
     .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 38px; }
@@ -465,6 +540,8 @@
       .mobile-menu-toggle { display: flex; }
       .hero { padding: 110px 0 54px; }
       section { padding: 58px 0; }
+      .video-footer { padding: 18px; justify-content: center; text-align: center; }
+      .video-footer .btn-secondary { width: 100%; }
       .pricing-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .final-cta { padding: 74px 0; }
@@ -726,6 +803,45 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== VIDEO DEMO ===== -->
+  <section id="demo-video" class="video-demo">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Video Demo</div>
+        <h2 class="section-title">Watch the walkthrough.</h2>
+        <p class="section-desc">A video tour of NuMeAi in action, showing how the AI storekeeper helps with discovery, conversion, and support.</p>
+      </div>
+
+      <div class="video-wrap">
+        <div class="video-card">
+          <div class="video-browser-bar">
+            <div class="demo-dot demo-dot-red"></div>
+            <div class="demo-dot demo-dot-yellow"></div>
+            <div class="demo-dot demo-dot-green"></div>
+            <div class="demo-url-bar">▶ YouTube demo video</div>
+          </div>
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/Rqw2DwwdH38?rel=0&modestbranding=1"
+              title="NuMeAi demo video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-footer">
+            <div class="video-footer-copy">
+              <strong>Full product walkthrough</strong>
+              Open the embedded video to see the experience end-to-end, then jump straight back to the live demo above.
+            </div>
+            <a href="https://youtu.be/Rqw2DwwdH38" target="_blank" class="btn btn-secondary btn-lg">Watch on YouTube ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 <!-- ===== PRICING ===== -->
   <section id="pricing" class="pricing">
     <div class="container">
